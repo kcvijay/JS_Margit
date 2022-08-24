@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Javascript REACT22S</title>
+        <link rel="stylesheet" href="/Margit's Lessons/style.css">
+    </head>
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(246, 204, 149);
+        }
+
+        label, input, button {
+            margin-top: 15px;
+        }
+
+        input {
+            height: 30px;
+            font-family: inherit;
+            padding: 0 10px;
+            border: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        img {
+            margin-top: 15px;
+            border: 5px solid #fff;
+            border-radius: 50%;
+        }
+
+        #check {
+            background-color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor:pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+       #check:hover, #check:active  {
+        background-color: rgb(236, 235, 235);
+       }
+    </style>
+    <body>
+        <div class="container">
+            <h1>JavaScript REACT22S</h1>
+            <p>Margit's Lessons</p>
+        </div>
+
+        <div class="input-container">
+            <img src="/Margit's Lessons/JavaScript/media/commander.png" width="75px" alt="army image">
+        
+        <label for="ageInput">What is your age?</label>
+        <input id="ageInput" type="number" required>
+        <button id="check">CHECK</button>
+
+        <p class="result"></p>
+        </div>
+
+        <script src="/Margit's Lessons/JavaScript/main.js"></script>
+
+    </body>
+</html>

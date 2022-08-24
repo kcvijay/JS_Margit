@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper-gasoline">
+        <h1 class="heading">Gasoline Calculator</h1>
+        <div class="input-section">
+            <div class="input">
+                <label for="gas-rate">Gas rate (€):</label>
+                <input type="number" id="gas-rate" required>
+            </div>
+
+            <div class="input">
+                <label for="gas-money">Gas money:</label>
+                <input type="number" id="gas-money" required>
+            </div>
+
+            <button id="calcGas">Calculate</button>
+            <p id="result">
+
+            </p>
+        </div>
+    </div>
+
+    <div class="wrapper-temperature">
+        <div class="celcius-inputs">
+            <label for="celcius">Celcius:</label>
+            <input type="number" id="celsius" oninput="celsiusToFarenheit(), celsiusToKelvin()" required>
+        </div>
+
+        <div class="celcius-inputs">
+            <label for="farenheit">Farenheit:</label>
+            <input type="number" id="farenheit" required>
+        </div>
+
+        <div class="celcius-inputs">
+            <label for="kelvin">Kelvin:</label>
+            <input type="number" id="kelvin" required>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
