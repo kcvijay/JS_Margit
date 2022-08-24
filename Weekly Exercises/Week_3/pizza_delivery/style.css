@@ -1,11 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+
 
 body {
+    width: 100vw;
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
 }
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+    color: #fff;
+    position: sticky;
+    box-shadow: 0 3rem 3rem #ff660023;
+    background-image: linear-gradient(to bottom right, rgba(51, 51, 51, 0.628), rgba(20, 19, 19, 0.356)),url("pizza.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.header-logo {
+    font-size: 3.2rem;
+}
+
+.header-logo-subtxt {
+    font-size: 1.6rem;
+}
+
+.logo-2 h2 {
+    font-size: 2rem;
+}
+
+.page-container {
+    max-width: 120rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
 .section-header {
     font-size: 32px;
+    background: #007a00;
+    padding: 2rem 1rem;
+    color: #fff;
 }
 
 .header-subtxt {
@@ -13,11 +64,83 @@ body {
     font-size: 14px;
     margin-left: 15px;
 }
+
+/* Customer Details */
+form {
+    padding: 3rem 0;
+    margin-left: 2rem;
+}
+form label {
+    display: inline-block;
+    width: 20rem;
+    font-size: 1.6rem;
+    margin: 1.5rem 0;
+}
+
+form input {
+    height: 3rem;
+    width: 30rem;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 0 1rem;
+    font-family: inherit;
+}
+
+/* Toppings */
+
+.toppings ul {
+    padding: 3rem 0;
+    margin-left: 2rem;
+}
 .toppings li {
     list-style-type: none;
+    font-size: 1.6rem;
 }
 .toppings input{
     display: inline-block;
     width: 50px;
     margin: 5px 0;
 }
+
+/* Delivery section */
+h3 {
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+select {
+    height: 3rem;
+    width: 25rem;
+    font-family: inherit;
+    margin: 3rem 0 3rem 2rem;
+}
+
+button {
+    background: #007a00;
+    padding: 1rem 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 5px;
+    box-sizing: 0 3rem 3rem rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    filter: opacity(0.8)
+}
+
+/* Order confirmation */
+
+.section-header-order {
+    background-color: orange;
+    padding: 2rem 3rem;
+    font-size: 3rem;
+    color: #333;
+}
+
+#order {
+    margin-left: 2rem;
+}
+

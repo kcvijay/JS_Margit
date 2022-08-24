@@ -14,78 +14,88 @@
         <nav>
             <div class="logo">
                 <h1 class="header-logo">Yum-Yum Pizzeria</h1>
-                <p class="header-logo-subtxt">We know your taste</p>
+                <p class="header-logo-subtxt">We know your taste.</p>
             </div>
 
             <div class="logo-2">
-                <h2>Order your Pizza here</h2>
+                <h2>Order your Pizza here &nbsp; &darr;</h2>
             </div>
         </nav>
 
-        <section class="customer-detail">
-            <h2 class="section-header"></h2>
-                <label for="customer-name">Your name:</label>
-                <input type="text" id="customer-name" placeholder="For ex. John Doe" required>
-
-                <label for="customer-email">Email:</label>
-                <input type="email" id="customer-name" placeholder="For ex. sample@website.com" required>
-
-                <label for="customer-name">Your address:</label>
-                <input type="text" id="customer-address" placeholder="Mallikatu 1, 00300 Helsinki" required>
-        </section>
-
         <section class="page-container">
-            <div class="people-picker">
+            <section class="customer-detail">
+                    <h2 class="section-header">Enter your details:</h2>
+                    <form>
+                        <div>
+                        <label for="customer-name">Your name:</label>
+                        <input type="text" id="customer-name" placeholder="For ex.  John Doe" required>
+                        </div>
 
-            </div>
-        </section>
+                        <div>
+                        <label for="customer-email">Email:</label>
+                        <input type="email" id="customer-name" placeholder="For ex. sample@website.com" required>
+                        </div>
+                        
+                        <div>
+                        <label for="customer-name">Your address:</label>
+                        <input type="text" id="customer-address" placeholder="Mallikatu 1, 00300 Helsinki" required>
+                        </div>
+                    </form>
+            </section>
+            <section class="people-picker">
 
-        <section class="toppings">
-            <h2 class="section-header">
-                Please, pick your toppings<span class="header-subtxt">(First 4 toppings are included in price. Extra is 0.50e/topping.)</span>
-            </h2>
-            
-            <ul>
-                <li><input type="checkbox" id="#pepperoni" name="topping" value="Pepperoni">Pepperoni</li>
-                <li><input type="checkbox" id="#kebab" name="topping" value="Kebab">Kebab</li>
-                <li><input type="checkbox" id="#chicken" name="topping" value="Chicken">Chicken</li>
-                <li><input type="checkbox" id="#kebab" name="topping" value="Kebab">Kebab</li>
-                <li><input type="checkbox" id="#minced-meat" name="topping" value="Minced meat">Minced meat</li>
-                <li><input type="checkbox" id="#mozzarella" name="topping" value="mozzarella">mozzarella</li>
-                <li><input type="checkbox" id="#red-onion" name="topping" value="Red onion">Red onion</li>
-                <li><input type="checkbox" id="#mushroom" name="topping" value="Mushroom">Mushroom</li>
-                <li><input type="checkbox" id="#ananas" name="topping" value="Ananas">Ananas</li>
-                <li><input type="checkbox" id="#jalapeno" name="topping" value="Jalapeno">Jalapeno</li>
-            </ul>
-        </section>
+            </section>
+        
 
-        <section class="delivery-option">
-            <h2 class="section-header">
-                Please select how do you want your pizza.
-            </h2>
+            <section class="toppings">
+                <h2 class="section-header">
+                    Pick your toppings<span class="header-subtxt">(First 4 toppings are included in price. Extra is <strong>0.50e</strong> per topping.)</span>
+                </h2>
+                
+                <ul>
+                    <li><input type="checkbox" id="#pepperoni" name="topping" value="Pepperoni">Pepperoni</li>
+                    <li><input type="checkbox" id="#kebab" name="topping" value="Kebab">Kebab</li>
+                    <li><input type="checkbox" id="#chicken" name="topping" value="Chicken">Chicken</li>
+                    <li><input type="checkbox" id="#kebab" name="topping" value="Kebab">Kebab</li>
+                    <li><input type="checkbox" id="#minced-meat" name="topping" value="Minced meat">Minced meat</li>
+                    <li><input type="checkbox" id="#mozzarella" name="topping" value="mozzarella">mozzarella</li>
+                    <li><input type="checkbox" id="#red-onion" name="topping" value="Red onion">Red onion</li>
+                    <li><input type="checkbox" id="#mushroom" name="topping" value="Mushroom">Mushroom</li>
+                    <li><input type="checkbox" id="#ananas" name="topping" value="Ananas">Ananas</li>
+                    <li><input type="checkbox" id="#jalapeno" name="topping" value="Jalapeno">Jalapeno</li>
+                </ul>
+            </section>
 
-            <select>
+           
+            <h3>
+                How do you want your pizza?
+            </h3>
+
+            <select id="delivery">
                 <option>Please pick an option..</option>
                 <option>Home Delivery (5e)</option>
                 <option>Eat at restaurant</option>
                 <option>Pick-up from restaurant</option>
             </select>
-        </section>
+        
 
-        <button type="submit" id="order">Place an order</button>
+            <button type="submit" id="order" onclick="getOrderNumber(8)">Place an order</button>
 
-        <section class="delivery-confirmation">
+            <section class="delivery-confirmation">
 
-            <div class="section-order-number">
-                <h3 class="order-number">Order Number: <span class="order">65656855</span></h3>
-            </div>
+                <h2 class="section-header-order">Your Order</h2>
 
-            <div class="customer-details-2">
-            <p class="cust-name">adf</p>
-            <p class="cust-email">adf</p>
-            <p class="cust-address">adfad</p>
-            </div>
-        </section>
+                <div class="section-order-number">
+                    <h3 class="order-number">Order Number: <span class="orderNumberTxt">___</span></h3>
+                </div>
+
+                <div class="customer-details-2">
+                <p class="cust-name">adf</p>
+                <p class="cust-email">adf</p>
+                <p class="cust-address">adfad</p>
+                </div>
+            </section>
+        <section>
     </div>
     <script src="main.js"></script>
 </body>
