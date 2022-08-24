@@ -36,12 +36,12 @@
 
         <div class="celcius-inputs">
             <label for="farenheit">Farenheit:</label>
-            <input type="number" id="farenheit" required>
+            <input type="number" id="farenheit" oninput="farenheitToCelsius(), farenheitToKelvin()" required>
         </div>
 
         <div class="celcius-inputs">
             <label for="kelvin">Kelvin:</label>
-            <input type="number" id="kelvin" required>
+            <input type="number" id="kelvin" oninput = "kelvintoCelsius(), kelvinToFarenheit()"required>
         </div>
     </div>
     <script src="main.js"></script>
