@@ -10,7 +10,7 @@
 <body>
     <div class="wrapper-gasoline">
         <h1 class="heading">Gasoline Calculator</h1>
-        <div class="input-section">
+        <form class="input-section">
             <div class="input">
                 <label for="gas-rate">Gas rate (€):</label>
                 <input type="number" id="gas-rate" required>
@@ -21,29 +21,30 @@
                 <input type="number" id="gas-money" required>
             </div>
 
-            <button id="calcGas">Calculate</button>
+            <button id="calcGas" type="submit">Calculate</button>
             <p id="result">
 
             </p>
-        </div>
+        </form>
     </div>
 
-    <div class="wrapper-temperature">
-        <div class="celcius-inputs">
+    <form class="wrapper-temperature">
+        <h1>Temperature Converter</h1>
+        <div class="inputs">
             <label for="celcius">Celcius:</label>
             <input type="number" id="celsius" oninput="celsiusToFarenheit(), celsiusToKelvin()" required>
         </div>
 
-        <div class="celcius-inputs">
+        <div class="inputs">
             <label for="farenheit">Farenheit:</label>
             <input type="number" id="farenheit" oninput="farenheitToCelsius(), farenheitToKelvin()" required>
         </div>
 
-        <div class="celcius-inputs">
+        <div class="inputs">
             <label for="kelvin">Kelvin:</label>
             <input type="number" id="kelvin" oninput = "kelvintoCelsius(), kelvinToFarenheit()"required>
         </div>
-    </div>
+    </form>
     <script src="main.js"></script>
 </body>
 </html>
