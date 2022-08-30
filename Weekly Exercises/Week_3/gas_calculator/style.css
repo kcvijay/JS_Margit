@@ -11,16 +11,16 @@ body {
     
 }
 
-.wrapepr {
+.wrapper-gasoline {
     width: 500px;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .input-section label {
     display: inline-block;
-    margin-right: 30px;
-    text-align: right;
-    margin: 10px;
+    width: 100px;
+  
+    margin: 15px 0;
     
 }
 
@@ -29,6 +29,20 @@ body {
 }
 
 .wrapper-temperature {
+    width: 500px;
     margin: 40px auto;
 }
+
+.inputs label {
+    display: inline-block;
+    width: 100px;
+    margin: 15px 0;
+    
+}
+
+.inputs input {
+    height: 25px;
+}
+
+
 
