@@ -6,7 +6,7 @@ let healthCondition = document.querySelectorAll(".health-condition");
 
 let resultTxt = document.getElementById("result");
 
-let basePrice = 500;
+
 
 const healthConditionResult = [];
 
@@ -14,14 +14,22 @@ const healthConditionResult = [];
 calcBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    ageCondition();
+    let basePrice = 500;
+
+    //ageCondition();
 
     for(let i = 0; i < healthCondition.length; i++) {
-        healthCondition[i].addEventListener("change", ()=> {
-            basePrice *= 1.01;
-            return resultTxt.textContent = `Your insurance is ${basePrice}.`;
-        })
+        healthCondition[i].addEventListener("click", (e) => {
+            
+                if(e.target.checked) {
+                    basePrice *= 1.01;
+                    console.log(basePrice);
+                } else return;
+            
+        }) 
     }
+
+    
 
 })
 
