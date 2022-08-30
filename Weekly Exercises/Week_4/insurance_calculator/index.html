@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Insurance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>check your insurance</h1>
+
+        <div class="user-details">
+            <h2>Please tell your details:</h2>
+            <div>
+                <label for="name">Your Full Name:</label>
+                <input type="text" id="name" placeholder="For ex. John Doe" required>
+            </div>
+            <div>
+                <label for="age">Your Age:</label>
+                <input type="number" id="age" placeholder="For ex. 30" required>
+            </div>
+        </div>
+
+        <div class="health-input">
+            <h2>Please state your current health:</h2>
+            <form>
+                <div>
+                    <input type="checkbox" id="hypertension">
+                    <label for="hypertension">Hypertension</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="bloodsugar">
+                    <label for="bloodsugar">Blood Sugar</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="Overweight">
+                    <label for="overweight">Overweight</label>
+                </div>
+            </form>
+        </div>
+
+        <div class="habits">
+            <h2>Please state your daily habits:</h2>
+            <form>
+                <div>
+                    <input type="checkbox" id="daily-exercise">
+                    <label for="daily-exercise">Daily Exercise</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="smoking">
+                    <label for="smoking">Smoking</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="drug-abuse">
+                    <label for="drug-abuse">Drug Abusing</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="alcohol-abuse">
+                    <label for="alcohol-abuse">Alcohol Abusing</label>
+                </div>
+                <a href="#"><button type="submit" id="calcInsurance">Calculate Insurance Price</button></a>
+            </form>
+        </div>
+
+        <div class="result-txt">
+            <p id="result">Sample text</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
