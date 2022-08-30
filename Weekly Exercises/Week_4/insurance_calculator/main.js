@@ -2,58 +2,70 @@ const calcBtn = document.getElementById("calcInsurance");
 
 let inputAge = document.getElementById("age");
 
-let healthCondition = document.querySelectorAll(".health-condition");
+const healthCondition = document.querySelectorAll(".health-condition");
+const habits = document.querySelectorAll(".habits");
 
-let resultTxt = document.getElementById("result");
+let resultTxt = document.querySelector(".insurance-cost");
+let monthlyCostField = document.querySelector(".monthly-cost");
+
+let basePrice = 500;
 
 
+for(let i = 0; i < healthCondition.length; i++) {
+    healthCondition[i].addEventListener("click", (e) => {
+        if(e.target.checked) {
+            basePrice *= 1.01;
+            console.log(basePrice);
+        } else return basePrice;
+    }) 
+}
 
-const healthConditionResult = [];
+for(let i = 0; i < habits.length; i++) {
+    habits[i].addEventListener("click", (b)=>{
+        if(b.target.checked) {
+            basePrice *= 1.05;
+            console.log(basePrice);
+        } else return;
+    })
+}
 
 
 calcBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
-    let basePrice = 500;
-
-    //ageCondition();
-
-    for(let i = 0; i < healthCondition.length; i++) {
-        healthCondition[i].addEventListener("click", (e) => {
-            
-                if(e.target.checked) {
-                    basePrice *= 1.01;
-                    console.log(basePrice);
-                } else return;
-            
-        }) 
-    }
+    inputAge = Number(inputAge.value);
 
     
 
+    if(inputAge > 0 && inputAge < 18) {
+        basePrice;
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else if(inputAge >= 18 && inputAge <= 25) {
+        basePrice *= 1.10;
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else if (inputAge >= 26 && inputAge <=35 ) {
+        basePrice *= 1.30;
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else if (inputAge >= 36 && inputAge <= 45) {
+        basePrice *= 1.60;
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else if (inputAge >= 46 && inputAge <= 55) {
+        basePrice *= 2;
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else if (inputAge >= 56 && inputAge <= 65) {
+        basePrice *= 2.5;
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else if( inputAge >= 66) {
+        basePrice *= 3.1
+        resultTxt.textContent = `${basePrice.toFixed(2)}€`;
+    } else return;
+
+    monthlyCost();
 })
 
 
-function ageCondition() {
 
-    inputAge = Number(inputAge.value);
-
-    if(inputAge > 0 && inputAge < 18) {
-        return resultTxt.textContent = `Your insurance Price is ${basePrice}.`
-    } else if(inputAge >= 18 && inputAge <= 25) {
-        return resultTxt.textContent = `Your insurance price is ${
-        basePrice *= 1.10}.`
-    } else if (inputAge >= 26 && inputAge <=35 ) {
-        return resultTxt.textContent = `Your insurance price is ${basePrice *= 1.30}.`;
-    } else if (inputAge >= 36 && inputAge <= 45) {
-        return resultTxt.textContent = `Your insurance price is ${basePrice *= 1.60}.`;
-    } else if (inputAge >= 46 && inputAge <= 55) {
-        return resultTxt.textContent = `Your insurance price is ${basePrice *= 2}.`;
-    } else if (inputAge >= 56 && inputAge <= 65) {
-        return resultTxt.textContent = `Your insurance price is ${basePrice *= 2.5}.`;
-    } else if( inputAge >= 66) {
-        return resultTxt.textContent = `Your insurance price is ${basePrice *= 3.1}.`;
-    } else basePrice;
+function monthlyCost() {
+    monthlyCostField.textContent = `${(basePrice/12).toFixed(2)}€/month`
 }
 
 

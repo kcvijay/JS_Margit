@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;    
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(230, 245, 250);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: #fff;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: columnß;
+}
+
+h1 {
+    font-size: 4rem;
+    color:#074495;
+}
+
+.logo p {
+    font-size: 2rem;
+    color:#ff7700;
+}
+
+.logo-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-right p {
+    font-size: 2.5rem;
+    color:#ff7700;
+    font-weight: 700;
+}
+
+#nav-search {
+    margin-left: 3rem;
+    height: 4rem;
+    width: 30rem;
+    font-family: inherit;
+    font-size: 1.5rem;
+    border: 1px solid #ff7700;
+    border-radius: 4px;
+    padding:  0 1rem;
+    position: relative;
+}
+
+.logo-right a {
+    position: absolute;
+    right: 5rem;
+    filter: grayscale(0.1);
+    cursor: pointer;
+}
+
+/* HERO CONTAINER */
+.hero-container {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.307), rgba(51, 51, 51, 0.774)),url("media/family.webp");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    margin: 0 auto;
+    height: 60vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.hero-txt {
+    position: absolute;
+    width: 100rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 3rem;
+    border-left: 8px solid #074495;
+}
+
+.hero-txt h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color:#074495;
+}
+
+.hero-txt p {
+    font-size: 2rem;
+    line-height: 2;
+    color: #333;
+}
+
+#toQuote {
+    background: #074495;
+    padding: 1.5rem 3rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    width: 140rem;
+    margin: 0 auto;
+    background: #fff;
+    padding: 6rem;
+}
+
+.main-container h2 {
+    font-size: 3.2rem;
+    color:#ff7700;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 6rem;
+    font-weight: 400;
+}
+
+.main-container h3 {
+    font-size: 2.2rem;
+    color: #555;
+    margin: 2.5rem 0;
+}
+
+.user-details label {
+    display: inline-block;
+    width: 20rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+.user-details input {
+    height: 4rem;
+    width: 30rem;
+    font-family: inherit;
+    font-size: 1.5rem;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 0 1rem;
+}
+
+form div {
+    margin-bottom: 2rem;
+}
+
+form label {
+    font-size: 2rem;
+    vertical-align: middle;
+    margin: 0 0 2rem 2rem;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    accent-color: #ff7700;
+    vertical-align: middle;
+}
+
+#calcInsurance {
+    background: #074495;
+    padding: 1.5rem 3rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.result-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.result-field .card {
+    width: 35rem;
+    height: auto;
+    padding: 3rem;
+    border: 1px solid rgb(235, 233, 233);
+    text-align: center;
+    box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+}
+
+.card h3 {
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+.insurance-cost {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    color:#ff7700;
+}
+
+.monthly-cost {
+    font-size: 2rem;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+}
