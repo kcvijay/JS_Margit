@@ -197,7 +197,7 @@ button:hover {
 /* Order confirmation */
 
 .section-orderpage {
-    margin-top: 4.5rem;
+    margin-top: 4.2rem;
 }
 
 .delivery-confirmation {
@@ -206,7 +206,7 @@ button:hover {
 }
 
 .section-header-order {
-    border-bottom: 3px solid #999;
+    border-bottom: 4px solid #999;
     padding: 2rem 3rem;
     font-size: 3rem;
     color: #333;

@@ -49,7 +49,7 @@ let toppingCount = 0; // Counting the topping, input of extra value and insertin
             console.log(toppingCount);
 
             if(toppingCount > 4) {
-                toppingItem[i].value = 0.50;
+                toppingItem[i].value = 1;
                 console.log(toppingItem[i].value);
             }
 
@@ -71,7 +71,8 @@ orderBtn.addEventListener("click", (e) => { //On Order button click!
     orderCompanyDetail();
 
     orderCustDetail.innerHTML = 
-    `<p>${inputCustName.value}</p>
+    `<p><strong>Customer Details:</strong><p>
+    <p>${inputCustName.value}</p>
     <p>${inputCustEmail.value}<p>
     <p>${inputCustAddress.value}</p>`;
 
