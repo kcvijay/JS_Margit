@@ -21,81 +21,152 @@
                 <h2>Order your Pizza here &nbsp; &darr;</h2>
             </div>
         </nav>
+        
+        <div class="main-page-grid">
+            <section class="page-container">
 
-        <section class="page-container">
-            <section class="customer-detail">
-                    <h2 class="section-header">Enter your details:</h2>
-                    <form>
-                        <div>
-                        <label for="customer-name">Your name:</label>
-                        <input type="text" id="customer-name" placeholder="For ex.  John Doe" required>
+            <section class="pizza-picker">
+                    <h2 class="section-header">
+                        Pick your pizza:
+                    </h2>
+
+                    <div class="pizza-cards">
+                        <div class="card">
+                            <figure>
+                                <img src="media/pizza.jpg" alt="Image of a pizza">
+                            </figure>
+                            <div>
+                                <h4 class="card-header">Pizza for 2</h4>
+                                <p class="card-price">7,50 euros</p>
+                            </div>
+                            <input type="radio" id="pizza-2" name="pizza-select" class="radio-pizza" value="7.50">
                         </div>
 
-                        <div>
-                        <label for="customer-email">Email:</label>
-                        <input type="email" id="customer-name" placeholder="For ex. sample@website.com" required>
+                        <div class="card">
+                            <figure>
+                                <img src="media/pizza.jpg" alt="Image of a pizza">
+                            </figure>
+                            <div>
+                                <h4 class="card-header">Pizza for 4</h4>
+                                <p class="card-price">10,50 €</p>
+                            </div>
+                            <input type="radio" id="pizza-4" name="pizza-select" class="radio-pizza" value="10.50">
                         </div>
-                        
-                        <div>
-                        <label for="customer-name">Your address:</label>
-                        <input type="text" id="customer-address" placeholder="Mallikatu 1, 00300 Helsinki" required>
-                        </div>
-                    </form>
-            </section>
-            <section class="people-picker">
 
+                        <div class="card">
+                            <figure>
+                                <img src="media/pizza.jpg" alt="Image of a pizza">
+                            </figure>
+                            <div>
+                                <h4 class="card-header">Pizza for 6</h4>
+                                <p class="card-price">12,50 €</p>
+                            </div>
+                            <input type="radio" id="pizza-6" name="pizza-select" class="radio-pizza" value="12.50">
+                        </div>
+
+                        <div class="card">
+                            <figure>
+                                <img src="media/pizza.jpg" alt="Image of a pizza">
+                            </figure>
+                            <div>
+                                <h4 class="card-header">Pizza for 8</h4>
+                                <p class="card-price">15,50 €</p>
+                            </div>
+                            <input type="radio" id="pizza-8" name ="pizza-select" class="radio-pizza" value="15.50">
+                        </div>
+                    </div>
             </section>
         
-
             <section class="toppings">
                 <h2 class="section-header">
-                    Pick your toppings<span class="header-subtxt">(First 4 toppings are included in price. Extra is <strong>0.50e</strong> per topping.)</span>
+                    Pick your toppings:<br><span class="header-subtxt">(Incl. 4 toppings. Extra is <strong>0.50e</strong> per topping.)</span>
                 </h2>
                 
                 <ul>
-                    <li><input type="checkbox" id="#pepperoni" name="topping" value="Pepperoni">Pepperoni</li>
-                    <li><input type="checkbox" id="#kebab" name="topping" value="Kebab">Kebab</li>
-                    <li><input type="checkbox" id="#chicken" name="topping" value="Chicken">Chicken</li>
-                    <li><input type="checkbox" id="#kebab" name="topping" value="Kebab">Kebab</li>
-                    <li><input type="checkbox" id="#minced-meat" name="topping" value="Minced meat">Minced meat</li>
-                    <li><input type="checkbox" id="#mozzarella" name="topping" value="mozzarella">mozzarella</li>
-                    <li><input type="checkbox" id="#red-onion" name="topping" value="Red onion">Red onion</li>
-                    <li><input type="checkbox" id="#mushroom" name="topping" value="Mushroom">Mushroom</li>
-                    <li><input type="checkbox" id="#ananas" name="topping" value="Ananas">Ananas</li>
-                    <li><input type="checkbox" id="#jalapeno" name="topping" value="Jalapeno">Jalapeno</li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Pepperoni" id="pepperoni"><label for="pepperoni">Pepperoni</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Kebab" id="kebab"><label for="kebab">Kebab</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Chicken" id="chicken"><label for="chicken">Chicken</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Pork" id="pork"><label for="pork">Pork</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Minced meat" id="mincedmeat"><label for="mincedmeat">Minced meat</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Mozzarella" id="mozzarella"><label for="mozzarella">Mozzarella</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Red onion" id="redonion"><label for="redonion">Red onion</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Mushroom" id="mushroom"><label for="mushroom">Mushroom</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Pineapple" id="pineapple"><label for="pineapple">Pineapple</label></li>
+                    <li><input type="checkbox" class="item-toppings" value="0" name="Topping - Jalapeno" id="jalapeno"><label for="jalapeno">Jalapeno</label></li>
                 </ul>
+                
             </section>
 
+             <section class="customer-detail">
+                    <h2 class="section-header">Your details:</h2>
+                    <form>
+                        <div>
+                        <label for="customer-name">Your name:</label>
+                        <input type="text" id="customer-name" placeholder="For ex.  John Doe" class="personal-detail">
+                        </div>
+
+                        <div class="hidden-address hide">
+                        <label for="customer-email">Email:</label>
+                        <input type="email" id="customer-email" placeholder="For ex. sample@website.com"  class="personal-detail">
+                        </div>
+                        
+                        <div class="hidden-address hide">
+                        <label for="customer-name">Your address:</label>
+                        <input type="text" id="customer-address" placeholder="Mallikatu 1, 00300 Helsinki"  class="personal-detail">
+                        </div>
+                    </form>
+            </section>
            
             <h3>
                 How do you want your pizza?
             </h3>
 
-            <select id="delivery">
-                <option>Please pick an option..</option>
-                <option>Home Delivery (5e)</option>
-                <option>Eat at restaurant</option>
-                <option>Pick-up from restaurant</option>
-            </select>
+            <form>
+                <select id="delivery">
+                    <option class="delivery-option" value="0">Eat @ restaurant</option>
+                    <option class="delivery-option" value="0">Pick-up from restaurant</option>
+                    <option class="delivery-option" value="5">Home Delivery</option>
+                </select>
+
+                <a href="#orderpage"><button type="submit" id="order">Order</button></a>
+
+            </form>
+
+        </section>
         
-
-            <button type="submit" id="order" onclick="getOrderNumber(8)">Place an order</button>
-
-            <section class="delivery-confirmation">
+        <section class="section-orderpage" id="orderpage">
+            <aside>
 
                 <h2 class="section-header-order">Your Order</h2>
 
-                <div class="section-order-number">
-                    <h3 class="order-number">Order Number: <span class="orderNumberTxt">___</span></h3>
-                </div>
+                <section class="delivery-confirmation">
 
-                <div class="customer-details-2">
-                <p class="cust-name">adf</p>
-                <p class="cust-email">adf</p>
-                <p class="cust-address">adfad</p>
-                </div>
-            </section>
-        <section>
+                    <div class="section-order-number"></div>
+
+                    <div class="customer-details-2"></div>
+
+                    <div class="order-subheader">Your cart is empty</div>
+
+                    <table class="hide">
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table-body">
+                            <!--Item names and values come here-->
+                        </tbody>
+                    </table>
+
+                    <h3 id="total-txt" class="hide">Total:<span id="total-amount"></span></h3>
+
+                    <button id="pay" class="hide">Pay</button>
+                </section>
+            </aside>
+        </section>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
