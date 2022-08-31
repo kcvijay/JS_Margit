@@ -26,11 +26,12 @@
             <p>With our regularly optimized and personally-tailord Life-Insurance offers, you will receive the best insurance service, a lot more than our competitors.<br>
             Check now the best premium insurance offers suitable for you.</p>
             <a href="#"><button type="submit" id="toQuote">Request a Quote</button></a>
+            <a href="#main-container"><button type="submit" id="toMainContainer">Check Your Risk Score</button></a>
         </div>
         <div></div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container" id="main-container">
         <div class="container-grid">
             <h2>Calculate Your Insurance Policy Payments</h2>
 
@@ -63,30 +64,58 @@
                         <input class="health-condition" type="checkbox" id="overweight">
                         <label for="overweight">Overweight</label>
                     </div>
+
+                    <div>
+                        <input class="health-condition" type="checkbox" id="long-term-disease">
+                        <label for="long-term-disease">Long-term Disease (For. ex. cancer)</label>
+                    </div>
                 </form>
             </div>
 
-            <div class="habits">
-                <h3>Do you have any habits/addictions?</h3>
+            <div class="exercise">
+                <h3>Do you exercise regularly?</h3>
                 <form>
                     <div>
-                        <input type="checkbox" id="daily-exercise" value="daily-exercise">
-                        <label for="daily-exercise">Daily Exercise</label>
+                        <input class="daily-exercise" name="exercise-btn" type="radio" id="exercise-yes"><label for="exercise-yes">Yes</label>
                     </div>
 
                     <div>
-                        <input class="habits"  type="checkbox" id="smoking">
+                        <input class="daily-exercise" name="exercise-btn" type="radio" id="exercise-no"><label for="exercise-no">No</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="habitses">
+                <h3>Do you have any addictions?</h3>
+                <form>
+                    <div>
+                        <input class="habits"  type="checkbox" id="smoking" value="bad-habits">
                         <label for="smoking">Smoking</label>
                     </div>
 
                     <div>
-                        <input class="habits" type="checkbox" id="drug-abuse">
+                        <input class="habits" type="checkbox" id="drug-abuse" value="bad-habits">
                         <label for="drug-abuse">Drug Abusing</label>
                     </div>
 
                     <div>
-                        <input class="habits" type="checkbox" id="alcohol-abuse">
+                        <input class="habits" type="checkbox" id="alcohol-abuse" value="bad-habits">
                         <label for="alcohol-abuse">Alcohol Abusing</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="surgeries">
+                <h3>Have you had undergone any surgeries within last 2 years?</h3>
+                <form>
+                    <div>
+                        <input class="surgery" type="checkbox" id="minor-surgery" value="minor-surgery">
+                        <label for="minor-surgery">Minor Surgery</label>
+                    </div>
+
+                    <div>
+                        <input class="surgery"  type="checkbox" id="big-surgery" value="big-surgery">
+                        <label for="smoking">Big Surgery (For ex. heart-transplant)</label>
                     </div>
                 </form>
                 <a href="#score"><button type="submit" id="calcInsurance">Calculate Insurance Score</button></a>

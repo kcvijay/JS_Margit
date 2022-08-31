@@ -4,6 +4,9 @@ let inputAge = document.getElementById("age");
 
 const healthCondition = document.querySelectorAll(".health-condition");
 const habits = document.querySelectorAll(".habits");
+const dailyExercise = document.querySelectorAll(".daily-exercise");
+const minorSurgery = document.querySelector("#minor-surgery");
+const majorSurgery = document.querySelector("#big-surgery");
 
 let resultTxt = document.querySelector(".insurance-cost");
 let monthlyCostField = document.querySelector(".monthly-cost");
@@ -51,7 +54,15 @@ calcBtn.addEventListener("click", (e) => {
         }
     });
 
-    goodHabit();
+    dailyExercise.forEach((e) => {
+        if(e.target.id === "exercise-yes") {
+            baseScore *= 0.95;
+            resultTxt.textContent = `${baseScore.toFixed(0)}`;
+        } else if (e.target.id === "exercise-no") {
+            baseScore *= 1.05;
+            resultTxt.textContent = `${baseScore.toFixed(0)}`;
+        }
+    })
 
     habits.forEach((e)=> {
         if(e.checked) {
@@ -59,6 +70,8 @@ calcBtn.addEventListener("click", (e) => {
             resultTxt.textContent = `${baseScore.toFixed(0)}`;
         }
     })
+
+    
 
     if(resultField.classList.contains("hide")) {
         resultField.classList.remove("hide")
@@ -76,4 +89,3 @@ function goodHabit() {
         resultTxt.textContent = `${baseScore.toFixed(0)}`;
     }
 }
-

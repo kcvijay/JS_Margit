@@ -20,7 +20,6 @@ const custDetail = document.querySelectorAll(".personal-detail");
 const payBtn = document.getElementById("pay");
 
 
-////////////////////////////////////////////////////////////////////////
 for(let i = 0; i < cardRadio.length; i++) { // Adding the name and value of pizza to order table
     cardRadio[i].addEventListener("click", () => {
         if(cardRadio[i].id == "pizza-2") {
