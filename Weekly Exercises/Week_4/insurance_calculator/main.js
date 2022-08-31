@@ -71,8 +71,6 @@ calcBtn.addEventListener("click", (e) => {
         }
     })
 
-    
-
     if(resultField.classList.contains("hide")) {
         resultField.classList.remove("hide")
     } else {

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    background-color: #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.main-container {
+    height: 100vh;
+    background-color: #fff;;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+}
+
+.background-generator {
+    width: 33vw;
+    align-self: center;
+    justify-self: center;
+}
+
+.gradient-field {
+    background: #000;
+    width: 100%;
+}
+
+.color-pickers {
+    margin: 6rem auto;
+}
+
+.position-grid {
+    width: 30rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 7rem auto;
+}
+    
+    
+input[type="color"] {
+    width: 130px;
+    height: 40px;
+    margin: 0 1rem;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+input[type="radio"] {
+   display: none;
+}
+
+label img {
+    width: 8rem;
+    height: 6rem;
+   border: 1px solid #000;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: 0.2s ease;
+}
+
+label img:hover, label img:active {
+    background:rgb(204, 204, 204);
+}
+
+#colorTxt {
+    font-size: 2rem;
+}
+
+#color-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4rem;
+    padding: 1rem 0;
+    width: 90%;
+    margin: 2rem auto;
+    border: 1px solid #dedddd;
+    position: relative;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+#textCopy {
+    padding: 1rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    font-family: inherit;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#copy-code {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+
+
+
+
+
