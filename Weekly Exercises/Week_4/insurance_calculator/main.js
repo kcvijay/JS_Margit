@@ -11,6 +11,8 @@ let monthlyCostField = document.querySelector(".monthly-cost");
 const inputName = document.getElementById("name");
 const userName = document.querySelector(".user-name");
 
+const resultField = document.querySelector(".result-field");
+
 let baseScore = 500;
 
 calcBtn.addEventListener("click", (e) => {
@@ -58,8 +60,14 @@ calcBtn.addEventListener("click", (e) => {
         }
     })
 
-    userName.textContent = `Hello, ${inputName.value},`;
-})
+    if(resultField.classList.contains("hide")) {
+        resultField.classList.remove("hide")
+    } else {
+        resultField.classList.add("hide")
+    }
+
+    userName.textContent = `Hello, ${inputName.value}`;
+});
 
 function goodHabit() {
     let niceHabit = document.querySelector("#daily-exercise");
@@ -68,6 +76,4 @@ function goodHabit() {
         resultTxt.textContent = `${baseScore.toFixed(0)}`;
     }
 }
-
-
 

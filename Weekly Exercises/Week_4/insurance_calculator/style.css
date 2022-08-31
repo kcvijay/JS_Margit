@@ -81,7 +81,7 @@ h1 {
     background-repeat: no-repeat;
     width: 100vw;
     margin: 0 auto;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -126,18 +126,20 @@ h1 {
 
 /* MAIN CONTAINER */
 .main-container {
-    width: 140rem;
+    width: 120rem;
     margin: 0 auto;
     background: #fff;
     padding: 6rem;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
 }
 
 .main-container h2 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     color:#ff7700;
     text-transform: capitalize;
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     font-weight: 400;
 }
 
@@ -147,15 +149,17 @@ h1 {
     margin: 2.5rem 0;
 }
 
+
+
 .user-details label {
     display: inline-block;
     width: 20rem;
     margin-bottom: 2rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 .user-details input {
-    height: 4rem;
-    width: 30rem;
+    height: 3rem;
+    width: 25rem;
     font-family: inherit;
     font-size: 1.5rem;
     border: 1px solid #999;
@@ -164,11 +168,11 @@ h1 {
 }
 
 form div {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 form label {
-    font-size: 2rem;
+    font-size: 1.6rem;
     vertical-align: middle;
     margin: 0 0 2rem 2rem;
 }
@@ -211,7 +215,7 @@ input[type="checkbox"] {
 }
 
 .card h3 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 400;
 }
 
@@ -221,8 +225,6 @@ input[type="checkbox"] {
     color:#ff7700;
 }
 
-.monthly-cost {
-    font-size: 2rem;
-    margin-top: 2rem;
-    letter-spacing: 1px;
+.hide {
+    display: none;
 }

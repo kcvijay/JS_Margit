@@ -31,70 +31,72 @@
     </div>
 
     <div class="main-container">
-        <h2>Calculate Your Insurance Policy Payments</h2>
+        <div class="container-grid">
+            <h2>Calculate Your Insurance Policy Payments</h2>
 
-        <div class="user-details">
-            <h3>Please tell your details:</h3>
-            <div>
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" placeholder="For ex. John Doe" required>
+            <div class="user-details">
+                <h3>Please tell your details:</h3>
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" placeholder="For ex. John Doe" required>
+                </div>
+                <div>
+                    <label for="age">Your Age:</label>
+                    <input type="number" id="age" placeholder="For ex. 32" required>
+                </div>
             </div>
-            <div>
-                <label for="age">Your Age:</label>
-                <input type="number" id="age" placeholder="For ex. 32" required>
+
+            <div class="health-input">
+                <h3>Do you have any health conditions?</h3>
+                <form>
+                    <div>
+                        <input class="health-condition" type="checkbox" id="hypertension">
+                        <label for="hypertension">Hypertension</label>
+                    </div>
+
+                    <div>
+                        <input class="health-condition"  type="checkbox" id="bloodsugar">
+                        <label for="bloodsugar">Blood Sugar</label>
+                    </div>
+
+                    <div>
+                        <input class="health-condition" type="checkbox" id="overweight">
+                        <label for="overweight">Overweight</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="habits">
+                <h3>Do you have any habits/addictions?</h3>
+                <form>
+                    <div>
+                        <input type="checkbox" id="daily-exercise" value="daily-exercise">
+                        <label for="daily-exercise">Daily Exercise</label>
+                    </div>
+
+                    <div>
+                        <input class="habits"  type="checkbox" id="smoking">
+                        <label for="smoking">Smoking</label>
+                    </div>
+
+                    <div>
+                        <input class="habits" type="checkbox" id="drug-abuse">
+                        <label for="drug-abuse">Drug Abusing</label>
+                    </div>
+
+                    <div>
+                        <input class="habits" type="checkbox" id="alcohol-abuse">
+                        <label for="alcohol-abuse">Alcohol Abusing</label>
+                    </div>
+                </form>
+                <a href="#score"><button type="submit" id="calcInsurance">Calculate Insurance Score</button></a>
             </div>
         </div>
 
-        <div class="health-input">
-            <h3>Do you have any health conditions?</h3>
-            <form>
-                <div>
-                    <input class="health-condition" type="checkbox" id="hypertension">
-                    <label for="hypertension">Hypertension</label>
-                </div>
-
-                <div>
-                    <input class="health-condition"  type="checkbox" id="bloodsugar">
-                    <label for="bloodsugar">Blood Sugar</label>
-                </div>
-
-                <div>
-                    <input class="health-condition" type="checkbox" id="overweight">
-                    <label for="overweight">Overweight</label>
-                </div>
-            </form>
-        </div>
-
-        <div class="habits">
-            <h3>Do you have any habits/addictions?</h3>
-            <form>
-                <div>
-                    <input type="checkbox" id="daily-exercise" value="daily-exercise">
-                    <label for="daily-exercise">Daily Exercise</label>
-                </div>
-
-                <div>
-                    <input class="habits"  type="checkbox" id="smoking">
-                    <label for="smoking">Smoking</label>
-                </div>
-
-                <div>
-                    <input class="habits" type="checkbox" id="drug-abuse">
-                    <label for="drug-abuse">Drug Abusing</label>
-                </div>
-
-                <div>
-                    <input class="habits" type="checkbox" id="alcohol-abuse">
-                    <label for="alcohol-abuse">Alcohol Abusing</label>
-                </div>
-                <button type="submit" id="calcInsurance">Calculate Insurance Score</button>
-            </form>
-        </div>
-
-        <div class="result-field hide">
+        <div class="result-field hide" id="score">
             <div class="card">
                 <p class="user-name" style="font-size: 18px;"></p>
-                <h3>Your Insurance Score is:</h3>
+                <h3>Your Risk Score is:</h3>
                 <p class="insurance-cost"></p>
             </div>
         </div>
