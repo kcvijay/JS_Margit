@@ -1,24 +1,20 @@
 const calcBtn = document.getElementById("calcInsurance");
-
 let inputAge = document.getElementById("age");
+const inputName = document.getElementById("name");
 
 const healthCondition = document.querySelectorAll(".health-condition");
-const habits = document.querySelectorAll(".habits");
+const habits = document.querySelectorAll(".bad-habits");
 const dailyExercise = document.querySelectorAll(".daily-exercise");
-const minorSurgery = document.querySelector("#minor-surgery");
-const majorSurgery = document.querySelector("#big-surgery");
+const surgery = document.querySelectorAll(".surgery")
 
-let resultTxt = document.querySelector(".insurance-cost");
-let monthlyCostField = document.querySelector(".monthly-cost");
-
-const inputName = document.getElementById("name");
-const userName = document.querySelector(".user-name");
+const resultTxt = document.querySelector(".insurance-score");
 
 const resultField = document.querySelector(".result-field");
+const userName = document.querySelector(".user-name");
 
 let baseScore = 500;
 
-calcBtn.addEventListener("click", (e) => {
+function calcRiskScore (e) {
     e.preventDefault();
     inputAge = Number(inputAge.value);
 
@@ -41,49 +37,57 @@ calcBtn.addEventListener("click", (e) => {
         baseScore *= 2.5;
         resultTxt.textContent = `${baseScore.toFixed(0)}`;
     } else if( inputAge >= 66) {
-        baseScore *= 3.1
+        baseScore *= 3.1;
         resultTxt.textContent = `${baseScore.toFixed(0)}`;
     } else return;
     
     
-    healthCondition.forEach((e) => {
+    healthCondition.forEach((e) => { // On every health condition, +1% increase;
         if(e.checked) {
-            baseScore *= 1.01;
+            baseScore *= 1.01; 
             console.log(baseScore);
             resultTxt.textContent = `${baseScore.toFixed(0)}`;
-        }
+        } else return;
     });
 
     dailyExercise.forEach((e) => {
-        if(e.target.id === "exercise-yes") {
-            baseScore *= 0.95;
-            resultTxt.textContent = `${baseScore.toFixed(0)}`;
-        } else if (e.target.id === "exercise-no") {
-            baseScore *= 1.05;
-            resultTxt.textContent = `${baseScore.toFixed(0)}`;
+        if(e.checked) {
+            if(e.value === "exercise-yes") { // On regularly exercising, -5% decrease;
+                baseScore *= 0.95;
+                resultTxt.textContent = `${baseScore.toFixed(0)}`;
+            } else if (e.value === "exercise-no") { // On not exercising, +5% increase;
+                baseScore *= 1.05;
+                resultTxt.textContent = `${baseScore.toFixed(0)}`;
+            } else return;
         }
     })
 
-    habits.forEach((e)=> {
+    habits.forEach((e)=> { // On every bad habit, +5% increase
         if(e.checked) {
             baseScore *= 1.05;
             resultTxt.textContent = `${baseScore.toFixed(0)}`;
         }
     })
 
-    if(resultField.classList.contains("hide")) {
+    surgery.forEach((e) => {
+        if(e.checked) {
+            if(e.value === "minor-surgery") { // On minor surgery, +1% increase
+                baseScore *= 1.01;
+                resultTxt.textContent = `${baseScore.toFixed(0)}`;
+            } else if (e.value === "big-surgery") { // On big surgery, +10% increase
+                baseScore *= 1.10;
+                resultTxt.textContent = `${baseScore.toFixed(0)}`;
+            } else return;
+        }
+    })
+
+    if(resultField.classList.contains("hide")) { // Toggling a score result field
         resultField.classList.remove("hide")
     } else {
         resultField.classList.add("hide")
     }
 
-    userName.textContent = `Hello, ${inputName.value}`;
-});
-
-function goodHabit() {
-    let niceHabit = document.querySelector("#daily-exercise");
-    if(niceHabit.checked) {
-        baseScore *= 0.95;
-        resultTxt.textContent = `${baseScore.toFixed(0)}`;
-    }
+    userName.textContent = `Hello, ${inputName.value}`; // Name of a user showing on result field
 }
+
+calcBtn.addEventListener("click", calcRiskScore);

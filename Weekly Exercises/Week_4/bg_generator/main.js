@@ -26,10 +26,10 @@ secondColor.addEventListener("input", ()=> {
 
 for(let i = 0; i < positionBtn.length; i++) {   
     positionBtn[i].addEventListener("click", () => {
-        
         actionVal = positionBtn[i].id;
         gradientField.style.backgroundImage = `linear-gradient(${actionVal}, ${val1}, ${val2})`;
         colorTxt.innerHTML = `<p><strong>For Styling Geeks:</strong></p>
         <p id="color-code">background-image: linear-gradient(${actionVal}, ${val1}, ${val2});</p>`
     })
 }
+

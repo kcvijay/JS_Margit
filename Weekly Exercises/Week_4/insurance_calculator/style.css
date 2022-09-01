@@ -149,7 +149,7 @@ h1 {
 }
 
 .main-container h2 {
-    font-size: 2.8rem;
+    font-size: 3.4rem;
     color:#ff7700;
     text-transform: capitalize;
     margin-bottom: 4rem;
@@ -231,7 +231,7 @@ input[type="checkbox"], input[type="radio"] {
     font-weight: 400;
 }
 
-.insurance-cost {
+.insurance-score {
     font-size: 5rem;
     color:#ff7700;
 }
