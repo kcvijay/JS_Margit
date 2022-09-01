@@ -7,7 +7,6 @@ const colorTxt = document.querySelector("#colorTxt");
 const gradientField = document.querySelector(".gradient-field");
 
 const textToCopy = document.getElementById("color-code");
-const copyBtn = document.getElementById("textCopy");
 
 let val1 = "#000000";
 let val2 = "#000000";
@@ -31,12 +30,6 @@ for(let i = 0; i < positionBtn.length; i++) {
         actionVal = positionBtn[i].id;
         gradientField.style.backgroundImage = `linear-gradient(${actionVal}, ${val1}, ${val2})`;
         colorTxt.innerHTML = `<p><strong>For Styling Geeks:</strong></p>
-        <p id="color-code">background-image: linear-gradient(${actionVal}, ${val1}, ${val2});</p>
-    <button id="textCopy" onclick="copyTextField()">Copy Code</button>
-        <p id="copy-code"></p>`;
-        
-    })  
-
+        <p id="color-code">background-image: linear-gradient(${actionVal}, ${val1}, ${val2});</p>`
+    })
 }
-
-
