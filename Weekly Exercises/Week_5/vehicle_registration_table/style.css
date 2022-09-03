@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 * {
     margin: 0;
@@ -12,18 +12,30 @@ html {
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 100vw;
     height: 100vh;
 }
 
 header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: #2f4f4f;
     padding: 0 2rem;
     position:sticky;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-icon {
+    width: 5rem;
+    filter: invert(1);
+    margin: 0 2rem;
 }
 
 h1 {
@@ -39,7 +51,7 @@ nav ul {
 nav a {
     list-style-type: none;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 2rem;
     color: #fff;
     cursor: pointer;
@@ -51,9 +63,35 @@ nav a:hover, nav a:active {
     color: #333;
 }
 
+.database-search {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-icon {
+    color: #fff;
+    font-size: 1.4rem;
+    filter: invert(1);
+    margin-right: .5rem;
+}
+
+.database-search a {
+    color: orange;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.database-search .log-out {
+    color: #fff;
+    text-decoration: underline;
+}
+
 input[type="search"] {
-    width: 20rem;
+    width: 25rem;
     height: 3rem;
+    margin-left: 2rem;
     padding: 0 1rem;
     font-family: inherit;
     border: none;
@@ -62,6 +100,8 @@ input[type="search"] {
 }
 
 #btn-search {
+    position: absolute;
+    right: 2rem;
     height: 3rem;
     padding: 0 1rem;
     border: 1px solid #fff;
@@ -142,10 +182,12 @@ input[type="text"], input[type="number"] {
 }
 
 /****** Database Table *******/
-
+.db-table {
+    margin-bottom: 4rem;
+}
 table {
     margin: 3rem auto;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     border-collapse: collapse;
     overflow-x:scroll;
     
@@ -159,6 +201,10 @@ thead {
     background-color: #2f4f4f;
     color: #fff;
     text-align: left;
+}
+
+th {
+    font-weight: 400;
 }
 
 thead th:last-child {
