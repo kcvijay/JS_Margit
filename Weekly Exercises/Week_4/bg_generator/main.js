@@ -4,7 +4,7 @@ let secondColor = document.querySelector("#second-color");
 const positionBtn = document.querySelectorAll("label")
 const colorTxt = document.querySelector("#colorTxt");
 
-const gradientField = document.querySelector(".gradient-field");
+const gradientField = document.querySelector(".main-container");
 
 const textToCopy = document.getElementById("color-code");
 
@@ -28,8 +28,8 @@ for(let i = 0; i < positionBtn.length; i++) {
     positionBtn[i].addEventListener("click", () => {
         actionVal = positionBtn[i].id;
         gradientField.style.backgroundImage = `linear-gradient(${actionVal}, ${val1}, ${val2})`;
-        colorTxt.innerHTML = `<p><strong>For Styling Geeks:</strong></p>
-        <p id="color-code">background-image: linear-gradient(${actionVal}, ${val1}, ${val2});</p>`
+        colorTxt.innerHTML = `<p><strong>For Geeks:</strong></p>
+        <p id="color-code"><strong>background-image:</strong> linear-gradient(${actionVal}, ${val1}, ${val2});</p>`
     })
 }
 
