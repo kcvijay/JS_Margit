@@ -5,6 +5,10 @@ const form = document.querySelector("form");
 const registrationInput = document.getElementById("reg-no");
 
 /*****Inputs*****/
+
+/**************/
+
+function createVehicle(e) {
     let owner = document.getElementById("owner-name").value.toUpperCase();
     let registration = document.getElementById("reg-no").value.toUpperCase();
     let company = document.getElementById("vehicle-company").value.toUpperCase();
@@ -12,13 +16,12 @@ const registrationInput = document.getElementById("reg-no");
     let model =  document.getElementById("vehicle-model").value.toUpperCase();
     let year =  document.getElementById("reg-year").value;
 
-/**************/
-
-function createVehicle(e) {
-    if(owner !== "" && registration !== "" && company !== "" && type !== "" && model !== "" && year !== "") {
+    if(!owner || !registration || !company || !type || !model || !year) {
         e.preventDefault();
-        
-        function vehicle(owner, registration, company, type, model, year) {
+        return false;
+    }
+   
+    function vehicle(owner, registration, company, type, model, year) {
         this.owner = owner;
         this.registration = registration;
         this.company = company;
@@ -26,13 +29,12 @@ function createVehicle(e) {
         this.model = model;
         this.year = year;
     }
+    
     let newVehicle = new vehicle(owner, registration, company, type, model, year);
     console.log(newVehicle);
     addTableRow(owner, registration, company, type, model, year);
     form.reset();
-    }
 }
-    
 
 createData.addEventListener("click", createVehicle);
 registrationInput.addEventListener("keyup", (event)=> {

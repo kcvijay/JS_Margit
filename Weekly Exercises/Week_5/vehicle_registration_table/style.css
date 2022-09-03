@@ -22,8 +22,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #2f4f4f;
-    padding: 0 2rem;
-    position:sticky;
+    padding: 0.5rem 1.5rem;
 }
 
 .logo {
@@ -73,7 +72,6 @@ nav a:hover, nav a:active {
     color: #fff;
     font-size: 1.4rem;
     filter: invert(1);
-    margin-right: .5rem;
 }
 
 .database-search a {
@@ -89,19 +87,18 @@ nav a:hover, nav a:active {
 }
 
 input[type="search"] {
-    width: 25rem;
+    width: 22rem;
     height: 3rem;
     margin-left: 2rem;
     padding: 0 1rem;
     font-family: inherit;
     border: none;
     border-radius: 3px;
-    position: relative;
+
 }
 
 #btn-search {
-    position: absolute;
-    right: 2rem;
+    margin-left: 0.5rem;
     height: 3rem;
     padding: 0 1rem;
     border: 1px solid #fff;
@@ -186,7 +183,7 @@ input[type="text"], input[type="number"] {
     margin-bottom: 4rem;
 }
 table {
-    margin: 3rem auto;
+    width: 100%;
     font-size: 1.6rem;
     border-collapse: collapse;
     overflow-x:scroll;
@@ -195,6 +192,7 @@ table {
 
 .db-table h2 {
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 thead {
