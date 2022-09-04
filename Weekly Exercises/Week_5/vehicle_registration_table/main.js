@@ -4,7 +4,7 @@ const table = document.querySelector("tbody");
 const form = document.querySelector("form");
 const registrationInput = document.getElementById("reg-no");
 
-/*****Inputs*****/
+let searchResult = document.getElementById("search-result-txt");
 
 /**************/
 
@@ -21,7 +21,7 @@ function createVehicle(e) {
         return false;
     }
    
-    function vehicle(owner, registration, company, type, model, year) {
+    function vehicle(owner, registration, company, type, model, year) { // Constuctor
         this.owner = owner;
         this.registration = registration;
         this.company = company;
@@ -36,7 +36,7 @@ function createVehicle(e) {
     form.reset();
 }
 
-createData.addEventListener("click", createVehicle);
+createData.addEventListener("click", createVehicle); // on both clicking the submit and entering from the last input
 registrationInput.addEventListener("keyup", (event)=> {
     if(event.key === "Enter") {
         createVehicle();
@@ -70,3 +70,26 @@ function addTableRow(cell1value, cell2value, cell3value, cell4value, cell5value,
     cell6.textContent = cell6value;
 }
 
+let input = document.getElementById("search");
+function searchItem() {
+    let myTable, tr, td, textValue;
+    filterTxt = input.value.toUpperCase();
+    myTable = document.getElementById("myTable");
+    tr = myTable.querySelectorAll("tr");
+
+    for(let i = 0; i < tr.length; i++) {
+        td = tr[i].querySelectorAll("td")[0];
+        if(td) {
+            textValue =  td.textContent;
+            if(textValue.toUpperCase().indexOf(filterTxt) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            
+        }
+    }
+}
+
+input.addEventListener("keyup", searchItem);
+    

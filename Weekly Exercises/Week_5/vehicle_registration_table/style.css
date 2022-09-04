@@ -15,14 +15,15 @@ body {
     font-family: 'Poppins', sans-serif;
     width: 100vw;
     height: 100vh;
+    margin-bottom: 4rem;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #2f4f4f;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.6rem;
 }
 
 .logo {
@@ -50,7 +51,7 @@ nav ul {
 nav a {
     list-style-type: none;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     padding: 2rem;
     color: #fff;
     cursor: pointer;
@@ -78,7 +79,7 @@ nav a:hover, nav a:active {
     color: orange;
     margin-left: 1rem;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .database-search .log-out {
@@ -127,7 +128,7 @@ main {
 
 .search-result {
     margin: 2rem 0;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-style: italic;
 }
 
@@ -144,7 +145,7 @@ form {
 label {
     display: inline-block;
     width: 20rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: 1rem 0;
 }
 
@@ -165,7 +166,7 @@ input[type="text"], input[type="number"] {
     color: #fff;
     border: none;
     border-radius: 3px;
-    font-size: 1.6rem;
+    font-size: 1.5;
     font-family: inherit;
     margin: 3rem 0;
     cursor: pointer;
@@ -182,11 +183,14 @@ input[type="text"], input[type="number"] {
 .db-table {
     margin-bottom: 4rem;
 }
-table {
-    width: 100%;
-    font-size: 1.6rem;
+
+#myTable {
+    width: 90%;
+    font-size: 1.5rem;
     border-collapse: collapse;
     overflow-x:scroll;
+    margin: 0 auto;
+    padding-bottom: 4rem;
     
 }
 
@@ -215,7 +219,7 @@ tbody  td:last-child {
 
 th, td {
     padding: 1rem;
-    width: 22rem;
+    width: 18rem;
     border: 1px solid #fff;
 }
 
