@@ -19,10 +19,10 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: 1.5fr 4fr;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 120rem;
+  max-width: 130rem;
   margin: 4rem auto;
   margin-top: 4rem;
 }
@@ -115,19 +115,11 @@ input[type="search"] {
   border: none;
   border-radius: 3px;
 }
-
-#btn-search {
-  margin-left: 0.5rem;
-  height: 3rem;
-  padding: 0 1rem;
-  border: 1px solid #fff;
-  color: #fff;
-  border-radius: 3px;
-  font-family: inherit;
-  background: darkslategray;
-  cursor: pointer;
-  transition: 0.2s ease;
+#search {
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
 }
+
 #btn-search:hover,
 #btn-search:active {
   filter: opacity(0.8);
@@ -163,7 +155,7 @@ label {
 
 input[type="text"],
 input[type="number"] {
-  width: 20rem;
+  width: 15rem;
   height: 3rem;
   font-size: 1.4rem;
   padding: 0 1rem;
