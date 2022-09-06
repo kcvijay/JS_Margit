@@ -119,8 +119,9 @@ function searchVehicleItem() {
   // Function for searching vehicle data either by registration number or, owner.
   const searchInputTxt = tableDataRows.find(function (vehicleItem) {
     if (vehicleItem.owner == searchBox) {
+      searchBox.value = "";
       return true;
     }
-    searchResultTxt.textContent = `The searched vehicle is ${vehicleItem.registration}, ${vehicleItem.company} ${vehicleItem.model} (${vehicleItem.type}) registered in ${vehicleItem.year}. The owner is ${vehicleItem.owner}.`;
+    searchResultTxt.innerHTML = `The searched vehicle is <strong>${vehicleItem.registration}, ${vehicleItem.company} ${vehicleItem.model} (${vehicleItem.type})</strong> registered in <strong>${vehicleItem.year}</strong>. The owner is <strong>${vehicleItem.owner}</strong>.`;
   });
 }
