@@ -101,7 +101,7 @@ function filterItem() {
   }
 }
 
-input.addEventListener("keyup", filterItem); // filtering the item in both button click and pressing Enter.
+input.addEventListener("keyup", filterItem); // filtering the table data item
 /*************/
 searchBtn.addEventListener("click", (e) => {
   // searching the vehicle item
