@@ -1,89 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vehicle Registration Database</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <div class="logo">
-            <img src="media/car.png" alt="logo of a car" class="car-icon">
-            <h1>Vehicle Database</h1>
-        </div>
-        <nav>
-            <ul>
-                <a href="#"><li>Home</li></a>
-                <a href="#db-input"><li>Vehicle Database</li></a>
-            </ul>
-        </nav>
-        <div class="database-search">
-           <img src="media/user.png" width="18px" class="user-icon">
-           <a href="#"class="log-out">Log Out</a>
-            <input type="search" id="search" placeholder="Search for vehicle..">
-            <button id="btn-search">Search</button>
-        </div>
+      <div class="logo">
+        <img src="media/car.png" alt="logo of a car" class="car-icon" />
+        <h1>Vehicle Database</h1>
+      </div>
+      <nav>
+        <ul>
+          <a href="#"><li>Home</li></a>
+          <a href="#db-input"><li>Vehicle Database</li></a>
+        </ul>
+      </nav>
+      <div class="database-search">
+        <img src="media/user.png" width="18px" class="user-icon" />
+        <a href="#" class="log-out">Log Out</a>
+        <input type="search" id="search" placeholder="Search for vehicle.." />
+        <button id="btn-search">Search</button>
+      </div>
     </header>
     <main>
-        <div class="search-result">
-            <p id="search-result-txt">Sample removable text for search result field</p>
-        </div>
-        <div class="db-input" id="db-input">
-            <h2>Input Vehicle Data</h2>
-            <form>
-                <div>
-                    <label for="owner-name">Vehicle Owner's Name:</label>
-                    <input type="text" id="owner-name" class="data-input" required>
-                </div>
+      <div class="search-result">
+        <p id="search-result-txt"></p>
+      </div>
+      <div class="db-input" id="db-input">
+        <h2>Insert Vehicle Data</h2>
+        <form>
+          <div>
+            <label for="reg-no">Registration No.:</label>
+            <input
+              type="text"
+              id="reg-no"
+              class="data-input"
+              placeholder="For ex. ABC-123"
+              required
+            />
+          </div>
+          <div>
+            <label for="owner-name">Owner's Name:</label>
+            <input type="text" id="owner-name" class="data-input" required />
+          </div>
 
-                <div>
-                    <label for="reg-no">Vehicle Registration No.:</label>
-                    <input type="text" id="reg-no"  class="data-input" placeholder="For ex. ABC-123" required>
-                </div>
+          <div>
+            <label for="vehicle-company">Maker:</label>
+            <input
+              type="text"
+              id="vehicle-company"
+              class="data-input"
+              placeholder="For ex. Audi"
+              required
+            />
+          </div>
 
-                <div>
-                    <label for="vehicle-company">Vehicle Company:</label>
-                    <input type="text" id="vehicle-company"  class="data-input" placeholder="For ex. Audi" required>
-                </div>
+          <div>
+            <label for="vehicle-model">Model:</label>
+            <input
+              type="text"
+              id="vehicle-model"
+              class="data-input"
+              placeholder="A1 1.4"
+              required
+            />
+          </div>
 
-                <div>
-                    <label for="vehicle-model">Vehicle Model:</label>
-                    <input type="text" id="vehicle-model"  class="data-input" placeholder="A1 1.8 Petrol" required>
-                </div>
+          <div>
+            <label for="vehicle-type">Body type:</label>
+            <input
+              type="text"
+              id="vehicle-type"
+              class="data-input"
+              placeholder="For ex. Hatchback"
+              required
+            />
+          </div>
 
-                <div>
-                    <label for="vehicle-type">Vehicle Type:</label>
-                    <input type="text" id="vehicle-type"  class="data-input" placeholder ="For ex. Hatchback" required>
-                </div>
+          <div>
+            <label for="reg-year">Registered Year:</label>
+            <input type="number" id="reg-year" class="data-input" required />
+          </div>
+          <div class="input-btns">
+            <button type="submit" id="submit">Add to Database</button>
+          </div>
+        </form>
+      </div>
 
-                <div>
-                    <label for="reg-year">First Registered Year:</label>
-                    <input type="number" id="reg-year"  class="data-input" required>
-                </div>
-                <button type="submit" id="submit">Add to Database</button>
-            </form>
-        </div>
-
-        <div class="db-table" id="db-table">
-            <h2>Vehicle Database</h2>
-            <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-                <thead>
-                    <tr>
-                        <th>Owner's Name:</th>
-                        <th>Registration No.</th>
-                        <th>Vehicle Company</th>
-                        <th>Vehicle Type</th>
-                        <th>Vehicle Model</th>
-                        <th>Registered Year</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+      <div class="db-table" id="db-table">
+        <h2>Vehicle Database</h2>
+        <input type="text" id="search--2" placeholder="Filter by Reg. No.." />
+        <table
+          class="table"
+          id="myTable"
+          data-filter-control="true"
+          data-show-search-clear-button="true"
+        >
+          <thead>
+            <tr>
+              <th>Reg. No.</th>
+              <th>Owner</th>
+              <th>Maker</th>
+              <th>Model</th>
+              <th>Body Type</th>
+              <th>Reg. Year</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </main>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
