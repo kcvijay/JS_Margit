@@ -107,7 +107,7 @@ nav a:active {
   text-decoration: underline;
 }
 
-input[type="search"] {
+#search {
   width: 22rem;
   height: 3rem;
   margin-left: 2rem;
@@ -166,8 +166,8 @@ input[type="number"] {
   padding: 0 1rem;
   font-family: inherit;
   color: #444;
-  border: 1px solid #97a7a7;
-  border-radius: 3px;
+  border: none;
+  border-bottom: 1px solid rgba(47, 79, 79, 0.5);
 }
 
 .input-btns {
@@ -207,7 +207,7 @@ button,
   margin: 2rem auto;
   width: 25%;
   border: none;
-  border-bottom: 1px solid rgb(168, 168, 168);
+  border-bottom: 1px solid rgba(47, 79, 79, 0.5);
   padding: 2rem 1rem;
   border-radius: 0;
 }

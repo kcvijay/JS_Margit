@@ -8,12 +8,11 @@ const searchBox = document.getElementById("search");
 const searchBtn = document.getElementById("btn-search");
 let searchResultTxt = document.getElementById("search-result-txt");
 
-let tableDataRows = [];
-
 /**************/
 
+// Creation of dynamic input data every time
+let tableDataRows = [];
 function createVehicle(e) {
-  // Creation of dynamic input data every time
   let owner = document.getElementById("owner-name").value.toUpperCase();
   let registration = document.getElementById("reg-no").value.toUpperCase();
   let company = document.getElementById("vehicle-company").value.toUpperCase();
@@ -36,20 +35,14 @@ function createVehicle(e) {
   }
 
   let newVehicle = new vehicle(registration, owner, company, model, type, year);
-  tableDataRows.push(newVehicle);
   addTableRow(registration, owner, company, model, type, year);
+  tableDataRows.push(newVehicle);
   form.reset();
   console.log(tableDataRows);
 }
 
-createData.addEventListener("click", createVehicle); // Creating a table data row on both clicking the submit and pressing Enter on last input box.
-registrationInput.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    createVehicle();
-  }
-});
-
-function addTableRow( // Function for adding table row and contents.
+// Function for adding table row and contents.
+function addTableRow(
   cell1value,
   cell2value,
   cell3value,
@@ -81,7 +74,6 @@ function addTableRow( // Function for adding table row and contents.
   cell6.textContent = cell6value;
 }
 
-const input = document.getElementById("search--2"); // Filtering the table by vehicle owner's name /**Experimental**
 function filterItem() {
   let myTable, tr, td, textValue;
   filterTxt = input.value.toUpperCase();
@@ -101,27 +93,38 @@ function filterItem() {
   }
 }
 
-input.addEventListener("keyup", filterItem); // filtering the table data item
-/*************/
+// Function for searching vehicle data either by registration number or, owner.
+function searchVehicleItem() {
+  const searchInputTxt = tableDataRows.find(function (vehicleItem) {
+    if (vehicleItem.owner === searchBox.value) {
+      return true;
+    }
+    searchResultTxt.innerHTML = `The searched vehicle <strong>${vehicleItem.registration}</strong> is <strong>${vehicleItem.company} ${vehicleItem.model} (${vehicleItem.type})</strong> registered in <strong>${vehicleItem.year}</strong>. The owner is <strong>${vehicleItem.owner}</strong>.`;
+  });
+}
+
+// Creating a table data row on both clicking the submit and pressing Enter on last input box.
+createData.addEventListener("click", createVehicle);
+registrationInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    createVehicle();
+  }
+});
+
+// Filtering the table by vehicle owner's name /**Experimental**
+const input = document.getElementById("search--2");
+
+// filtering the table data item
+input.addEventListener("keyup", filterItem);
+
+// searching the vehicle item
 searchBtn.addEventListener("click", (e) => {
-  // searching the vehicle item
-  e.preventDefault();
   searchVehicleItem();
 });
+
 searchBox.addEventListener("keyup", (e) => {
   e.preventDefault();
   if (e.key === "Enter") {
     searchVehicleItem();
-  }
+  } else return;
 });
-
-function searchVehicleItem() {
-  // Function for searching vehicle data either by registration number or, owner.
-  const searchInputTxt = tableDataRows.find(function (vehicleItem) {
-    if (vehicleItem.owner == searchBox) {
-      searchBox.value = "";
-      return true;
-    }
-    searchResultTxt.innerHTML = `The searched vehicle is <strong>${vehicleItem.registration}, ${vehicleItem.company} ${vehicleItem.model} (${vehicleItem.type})</strong> registered in <strong>${vehicleItem.year}</strong>. The owner is <strong>${vehicleItem.owner}</strong>.`;
-  });
-}
