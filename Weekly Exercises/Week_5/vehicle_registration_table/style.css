@@ -24,8 +24,8 @@ main {
   justify-content: flex-start;
   column-gap: 2rem;
   max-width: 130rem;
-  margin: 4rem auto;
-  margin-top: 4rem;
+  margin: 0 auto;
+  margin-top: 1rem;
 }
 
 .search-result {
@@ -34,6 +34,7 @@ main {
   margin-bottom: 3rem;
   font-size: 1.5rem;
   color: #555;
+  padding: 2rem 0;
 }
 
 header {
@@ -237,6 +238,14 @@ thead th:last-child {
 
 tbody td:last-child {
   text-align: center;
+}
+
+tbody tr {
+  transition: 0.3s ease;
+}
+
+tbody td:hover {
+  background-color: #ececec;
 }
 
 th,

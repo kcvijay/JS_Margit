@@ -4,7 +4,7 @@ const table = document.querySelector("tbody");
 const form = document.querySelector("form");
 const registrationInput = document.getElementById("reg-year");
 
-const searchBox = document.getElementById("search");
+let searchBox = document.getElementById("search");
 const searchBtn = document.getElementById("btn-search");
 let searchResultTxt = document.getElementById("search-result-txt");
 
@@ -21,24 +21,26 @@ function createVehicle(e) {
   let year = document.getElementById("reg-year").value;
 
   if (!owner || !registration || !company || !type || !model || !year) {
-    e.preventDefault();
     return false;
   }
 
-  function vehicle(registration, owner, company, model, type, year) {
-    this.registration = registration;
-    this.owner = owner;
-    this.company = company;
-    this.model = model;
-    this.type = type;
-    this.year = year;
+  class Vehicle {
+    constructor(registration, owner, company, model, type, year) {
+      this.registration = registration;
+      this.owner = owner;
+      this.company = company;
+      this.model = model;
+      this.type = type;
+      this.year = year;
+    }
   }
 
-  let newVehicle = new vehicle(registration, owner, company, model, type, year);
+  let newVehicle = new Vehicle(registration, owner, company, model, type, year);
+
   addTableRow(registration, owner, company, model, type, year);
   tableDataRows.push(newVehicle);
   form.reset();
-  console.log(tableDataRows);
+  console.table(tableDataRows);
 }
 
 // Function for adding table row and contents.
@@ -74,6 +76,7 @@ function addTableRow(
   cell6.textContent = cell6value;
 }
 
+// Filtering a table by license number
 function filterItem() {
   let myTable, tr, td, textValue;
   filterTxt = input.value.toUpperCase();
@@ -93,14 +96,17 @@ function filterItem() {
   }
 }
 
-// Function for searching vehicle data either by registration number or, owner.
+// Function for searching vehicle data by registration number ** returning 'result not found' on not finding the vehicle.
 function searchVehicleItem() {
-  const searchInputTxt = tableDataRows.find(function (vehicleItem) {
-    if (vehicleItem.owner === searchBox.value) {
-      return true;
-    }
-    searchResultTxt.innerHTML = `The searched vehicle <strong>${vehicleItem.registration}</strong> is <strong>${vehicleItem.company} ${vehicleItem.model} (${vehicleItem.type})</strong> registered in <strong>${vehicleItem.year}</strong>. The owner is <strong>${vehicleItem.owner}</strong>.`;
-  });
+  searchBox = searchBox.value.toUpperCase();
+  let result = tableDataRows.find(
+    (vehicleData) => vehicleData.registration === searchBox
+  );
+  if (result !== undefined) {
+    searchResultTxt.innerHTML = `The searched vehicle is <strong>${result.registration}, ${result.company} ${result.model} (${result.year})</strong> registered to <strong>${result.owner}.</strong>`;
+  } else {
+    searchResultTxt.textContent = "Result not found for given license number!";
+  }
 }
 
 // Creating a table data row on both clicking the submit and pressing Enter on last input box.
@@ -118,13 +124,11 @@ const input = document.getElementById("search--2");
 input.addEventListener("keyup", filterItem);
 
 // searching the vehicle item
-searchBtn.addEventListener("click", (e) => {
+searchBtn.addEventListener("click", () => {
   searchVehicleItem();
 });
-
 searchBox.addEventListener("keyup", (e) => {
-  e.preventDefault();
   if (e.key === "Enter") {
     searchVehicleItem();
-  } else return;
+  }
 });
