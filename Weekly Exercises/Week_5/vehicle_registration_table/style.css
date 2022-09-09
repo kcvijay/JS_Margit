@@ -137,6 +137,8 @@ nav a:active {
 #reset-table {
   float: right;
   margin-top: 2rem;
+  background-color: rgb(249, 71, 71);
+  margin-left: 0;
 }
 
 .db-input {
