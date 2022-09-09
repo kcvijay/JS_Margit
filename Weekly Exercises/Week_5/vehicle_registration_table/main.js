@@ -12,7 +12,7 @@ let searchResultTxt = document.getElementById("search-result-txt");
 
 // Creation of dynamic input data every time
 let tableDataRows = [];
-function createVehicle(e) {
+function createVehicle() {
   let owner = document.getElementById("owner-name").value.toUpperCase();
   let registration = document.getElementById("reg-no").value.toUpperCase();
   let company = document.getElementById("vehicle-company").value.toUpperCase();
@@ -132,3 +132,9 @@ searchBox.addEventListener("keyup", (e) => {
     searchVehicleItem();
   }
 });
+
+function resetTable() {
+  table.innerHTML = "";
+  tableDataRows = [];
+  console.table(tableDataRows);
+}

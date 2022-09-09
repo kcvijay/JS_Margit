@@ -11,7 +11,7 @@
   <body>
     <header>
       <div class="logo">
-        <img src="media/car.png" alt="logo of a car" class="car-icon" />
+        <img src="Media/car.png" alt="logo of a car" class="car-icon" />
         <h1>Vehicle Database</h1>
       </div>
       <nav>
@@ -21,7 +21,7 @@
         </ul>
       </nav>
       <div class="database-search">
-        <img src="media/user.png" width="18px" class="user-icon" />
+        <img src="Media/user.png" width="18px" class="user-icon" />
         <a href="#" class="log-out">Log Out</a>
         <input type="text" id="search" placeholder="Search by License no." />
         <button id="btn-search">Search</button>
@@ -94,6 +94,7 @@
 
       <div class="db-table" id="db-table">
         <h2>Vehicle Database</h2>
+        <button id="reset-table" onclick="resetTable()">Reset Table</button>
         <input type="text" id="search--2" placeholder="Filter by Reg. No.." />
         <table
           class="table"
