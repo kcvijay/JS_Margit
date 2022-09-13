@@ -31,9 +31,10 @@ h1 {
 .background-generator {
   width: 30rem;
   padding: 3rem;
+  height: 100vh;
   align-self: center;
   justify-self: center;
-  background: #e9e9e9;
+  background: #f1f1f1;
   border: 1px solid #dedede;
   box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.1);
 }
@@ -52,7 +53,7 @@ h1 {
   display: flex;
 }
 
-.position-grid {
+form {
   width: 20rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -78,6 +79,10 @@ input[type="radio"] {
   display: none;
 }
 
+input[type="radio"]:checked + label {
+  background-color: #fff;
+}
+
 label img {
   width: 5rem;
   height: 4rem;
@@ -89,7 +94,7 @@ label img {
 
 label img:hover,
 label img:active {
-  background: rgb(204, 204, 204);
+  background: #fff;
 }
 
 #colorTxt {
