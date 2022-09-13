@@ -21,13 +21,6 @@ h1 {
   font-size: 2.5rem;
 }
 
-.main-container {
-  height: 100vh;
-  width: 100vw;
-  background-color: #fff;
-  position: relative;
-}
-
 .background-generator {
   width: 30rem;
   padding: 3rem;
@@ -41,11 +34,6 @@ h1 {
 
 h1 {
   text-transform: capitalize;
-}
-
-.gradient-field {
-  background: #000;
-  width: 100%;
 }
 
 .color-pickers {
@@ -80,22 +68,26 @@ input[type="radio"] {
   display: none;
 }
 
-input[type="radio"]:checked + label {
-  background-color: #fff;
+label {
+  padding: 0.5rem;
+  display: block;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+label {
+  width: 100%;
 }
 
-label img {
-  width: 5rem;
-  height: 4rem;
-  border: 1px solid #000;
-  border-radius: 5px;
+.material-icons {
+  padding: 1rem;
+  height: 3rem;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
-label img:hover,
-label img:active {
-  background: #fff;
+input[type="radio"]:checked + label {
+  background: #999;
+  height: 100%;
 }
 
 #colorTxt {
