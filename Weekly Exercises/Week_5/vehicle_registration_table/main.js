@@ -100,9 +100,11 @@ function filterItem() {
 function searchVehicleItem() {
   searchBox = searchBox.value.toUpperCase();
   let result = tableDataRows.find(
-    (vehicleData) => vehicleData.registration === searchBox
+    (vehicleData) => vehicleData.registration == searchBox
   );
-  if (result !== undefined) {
+  if (tableDataRows.length == 0) {
+    searchResultTxt.textContent = "Please insert a search term first.";
+  } else if (result !== undefined) {
     searchResultTxt.innerHTML = `The searched vehicle is <strong>${result.registration}, ${result.company} ${result.model} (${result.year})</strong> registered to <strong>${result.owner}.</strong>`;
   } else {
     searchResultTxt.textContent = "Result not found for given license number!";
@@ -136,6 +138,7 @@ searchBox.addEventListener("keyup", (e) => {
 
 function resetTable() {
   table.innerHTML = "";
+  searchResultTxt.innerHTML = "";
   tableDataRows.length = 0;
   console.table(tableDataRows);
 }
