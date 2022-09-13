@@ -104,9 +104,9 @@ function filterItem() {
 
 // Function for searching vehicle data by registration number ** returning 'result not found' on not finding the vehicle.
 function searchVehicleItem() {
-  searchBox = searchBox.value.toUpperCase();
+  searchVal = searchBox.value.toUpperCase();
   let result = tableDataRows.find(
-    (vehicleData) => vehicleData.registration == searchBox
+    (vehicleData) => vehicleData.registration == searchVal
   );
   if (tableDataRows.length === 0) {
     searchResultTxt.textContent = "Please insert a search term.";
