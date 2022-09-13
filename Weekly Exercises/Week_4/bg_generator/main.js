@@ -12,8 +12,9 @@ for (let i = 0; i < positionBtn.length; i++) {
     actionVal = positionBtn[i].id;
     let val1 = firstColor.value;
     let val2 = secondColor.value;
-    gradientField.style.backgroundImage = `linear-gradient(${actionVal}, ${val1}, ${val2})`;
+    backgroundTxt = `linear-gradient(${actionVal}, ${val1}, ${val2})`;
+    gradientField.style.backgroundImage = backgroundTxt;
     colorTxt.innerHTML = `<p><strong>For Geeks:</strong></p>
-        <p id="color-code"><strong>background-image:</strong> linear-gradient(${actionVal}, ${val1}, ${val2});</p>`;
+        <p id="color-code"><strong>background-image:</strong>${backgroundTxt};</p>`;
   });
 }
