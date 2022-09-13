@@ -124,7 +124,8 @@ const input = document.getElementById("search--2");
 input.addEventListener("keyup", filterItem);
 
 // searching the vehicle item
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   searchVehicleItem();
 });
 searchBox.addEventListener("keyup", (e) => {
@@ -135,6 +136,6 @@ searchBox.addEventListener("keyup", (e) => {
 
 function resetTable() {
   table.innerHTML = "";
-  tableDataRows = [];
+  tableDataRows.length = 0;
   console.table(tableDataRows);
 }
