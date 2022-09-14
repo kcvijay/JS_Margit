@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+:root {
+  --primary-color: #0086b3;
+  --secondary-color: #80dfff;
+  --shade: #e6f9ff;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 10px;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* HEADER  */
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7cc5fa;
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.bg {
+  background-color: #fff;
+  color: #333;
+}
+
+.logo {
+  padding-left: 2.5rem;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 2.5rem;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+nav ul li:hover,
+nav ul li:active {
+  background-color: var(--shade);
+  color: #333;
+}
+
+nav ul li:hover a,
+nav ul li:active a {
+  color: #333;
+}
+
+.material-icons {
+  font-size: 1.5rem;
+}
+
+.ham-menu {
+  display: none;
+}
+
+/* SECTIONS */
+
+h2 {
+  font-size: 3rem;
+  color: #444;
+}
+
+section {
+  width: 100%;
+  min-height: 50vh;
+  scroll-margin-top: 5rem;
+  border-bottom: 5px solid #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 2.5rem;
+}
+
+section:first-child {
+  background-color: #7cc5fa;
+}
+
+section:nth-child(2) {
+  background-color: var(--primary-color);
+}
+
+section:nth-child(3) {
+  background-color: var(--secondary-color);
+}
+
+section:nth-child(4) {
+  background-color: #777;
+}
+
+.section-projects {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(45, 37, 37, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal {
+  width: 50vw;
+  min-height: auto;
+  font-size: 1.5rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 7px;
+  box-shadow: 0 3rem 3rem (0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+#modal-close {
+  background: red;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 50%;
+  float: right;
+  cursor: pointer;
+}
+
+.overlay,
+#modal {
+  display: none;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1.5rem 3rem;
+  border: none;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-links {
+  position: fixed;
+  top: 33%;
+  right: 0;
+  border-radius: 25px 0 0 25px;
+  flex-direction: column;
+  background: #fff;
+  display: none;
+}
+
+.sidebar-links .material-icons {
+  font-size: 3rem;
+  padding: 1.5rem;
+  color: rgb(128, 83, 0);
+}
+
+/* FOOTER */
+
+footer {
+  background: #333;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+#toTop {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  background: rgb(244, 127, 69);
+  color: #fff;
+  padding: 1rem;
+  border: 3px solid #fff;
+  display: none;
+}
+
+/* FOR MOBILE DEVICES */
+@media only screen and (max-width: 700px) {
+  header {
+    background-color: #7cc5fa;
+  }
+
+  h1 {
+    padding: 2rem;
+    font-size: 2.4rem;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.responsive {
+    display: block;
+  }
+
+  nav.responsive header {
+    background-color: #fff;
+  }
+
+  nav.responsive ul {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+  }
+
+  nav.responsive ul li {
+    display: block;
+  }
+
+  .ham-menu {
+    display: block;
+    font-size: 4rem;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .hide {
+    display: none;
+  }
+}

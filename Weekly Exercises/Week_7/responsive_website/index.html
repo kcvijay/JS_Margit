@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Website</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#"><h1 class="logo">Vijay KC</h1></a>
+      <nav>
+        <ul>
+          <li><a class="btnMenu" href="#projects">Projects</a></li>
+          <li><a class="btnMenu" href="#skills">Skills</a></li>
+          <li><a class="btnMenu" href="#about">About</a></li>
+          <li><a class="btnMenu" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <i class="material-icons ham-menu">menu</i>
+    </header>
+    <main>
+      <section class="section-projects" id="projects">
+        <h2>My Projects</h2>
+        <button id="btnModal">Open Modal</button>
+      </section>
+      <section class="section-skills" id="skills">
+        <h2>My Skills</h2>
+      </section>
+      <section class="section-about" id="about">
+        <h2>About Me</h2>
+      </section>
+      <section class="section-contact" id="contact">
+        <h2>Contact Me</h2>
+      </section>
+      <div class="overlay">
+        <div id="modal">
+            <i class="material-icons" id="modal-close">close</i>
+            <h3>This is a modal header.</h3>
+            <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis minus dolor autem labore nihil incidunt aliquid maiores nesciunt placeat reiciendis nobis, voluptatibus aliquam libero eligendi eos vero error provident dolores.<br><br>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque pariatur deserunt eum enim quo quasi. Minima voluptas laboriosam nihil vel doloremque debitis, nulla at ut unde reiciendis sint consequatur et.
+            
+          </div>
+      </div>
+
+      <div class="sidebar-links">
+        <i class="material-icons">facebook</i>
+        <i class="material-icons">email</i>
+      </div>
+      
+    </main>
+    <footer>&copy; Vijay KC 2022</footer>
+   <button id="toTop">To Top <span class="material-icons">north</span></button>
+    <script src="main.js"></script>
+  </body>
+</html>
