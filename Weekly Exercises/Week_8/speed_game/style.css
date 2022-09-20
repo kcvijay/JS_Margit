@@ -160,7 +160,7 @@ main {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 5px solid #fff;
+  border: 10px solid #fff;
   border-radius: 33%;
   filter: grayscale(1);
   transition: 0.3s ease;
@@ -176,4 +176,8 @@ main {
 .btn:hover,
 .btn:active {
   opacity: 0.8;
+}
+
+#stopBtn {
+  display: none;
 }

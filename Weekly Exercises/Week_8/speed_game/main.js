@@ -3,7 +3,19 @@ const btnInfo = document.querySelector(".info");
 const overlay = document.querySelector(".overlay");
 const btns = document.querySelectorAll(".btn");
 
-const btnStartGame = document.querySelector("#startStopBtn");
+const btnStartGame = document.querySelector("#startBtn");
+const btnStopGame = document.querySelector("#stopBtn");
+
+const startGame = () => {
+  console.log("Game started");
+};
+
+const endGame = () => {
+  console.log("Game ended");
+};
+
+btnStartGame.addEventListener("click", startGame);
+btnStopGame.addEventListener("click", endGame);
 
 const toggleModal = () => {
   overlay.classList.toggle("visible");
@@ -17,7 +29,3 @@ for (const btn of btns) {
     console.log(btn.value);
   });
 }
-
-btnStartGame.addEventListener("click", () => {
-  console.log("Game is started!");
-});
