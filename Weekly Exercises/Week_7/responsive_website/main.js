@@ -11,6 +11,7 @@ const sideLinks = document.querySelector(".sidebar-links");
 
 const body = document.querySelector("body");
 const modal = document.querySelector("#modal");
+const overlay = document.querySelector(".overlay");
 const btnModalOpen = document.querySelector("#btnModal");
 const btnModalClose = document.querySelector("#modal-close");
 
@@ -38,19 +39,22 @@ for (const link of menuBtns) {
 
 menu.addEventListener("click", mobMenu);
 
-btnModalOpen.addEventListener("click", () => {
-  modal.style.display = "block";
-  window.style.backgroundColor = "#333333";
-});
-btnModalClose.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+// const modalOpen = () => {
+//   overlay.style.display = "block";
+//   document.body.style.overflow = "hidden";
+// };
 
-/*for (let i = 0; i < menuBtns.length; i++) {
-  menuBtns[i].addEventListener("click", () => {
-    nav.style.display = "none";
-  });
-}*/
+// const modalClose = () => {
+//   overlay.style.display = "none";
+//   document.body.style.overflow = "auto ";
+// };
+
+const modalDisplay = () => {
+  overlay.classList.toggle("visible");
+};
+
+btnModalOpen.addEventListener("click", modalDisplay);
+btnModalClose.addEventListener("click", modalDisplay);
 
 window.onscroll = function () {
   scrollFunction();

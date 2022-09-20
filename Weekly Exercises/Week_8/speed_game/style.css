@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Acme", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+button {
+  background: chocolate;
+  padding: 15px 30px;
+  font-family: inherit;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 11px;
+  border: 3px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover,
+button:active {
+  opacity: 0.8;
+}
+
+header {
+  padding: 20px 0;
+  background: rgb(254, 164, 100);
+  border-bottom: 1px solid #f1f1f1;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #fff;
+}
+
+main {
+  background-image: linear-gradient(
+      to bottom left,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("photo/money.webp");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+}
+
+.modal {
+  max-width: 600px;
+  min-width: 300px;
+  text-align: left;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-size: 18px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 7px;
+  box-shadow: 0 3rem 3rem (0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: red;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 50%;
+  float: right;
+  cursor: pointer;
+}
+
+.visible {
+  display: flex;
+}
+
+.container-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.score-header {
+  text-transform: capitalize;
+}
+
+#score {
+  border: 1px solid #fff;
+  border-radius: 11px;
+  padding: 10px 25px;
+  margin-left: 20px;
+  color: #fff;
+  font-size: 25px;
+}
+
+.info {
+  height: 40px;
+  width: 40px;
+  font-size: 30px;
+  color: #333;
+  border: 1px solid rgb(173, 173, 173);
+  background-color: rgb(219, 219, 219);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.info:hover,
+.info:active {
+  background-color: #fff;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.btn {
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  background-image: url(photo/bitcoin.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 5px solid #fff;
+  border-radius: 33%;
+  filter: grayscale(1);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.active {
+  filter: grayscale(0);
+  border: 10px solid #d2691e;
+  box-shadow: 0 0 40px chocolate;
+}
+
+.btn:hover,
+.btn:active {
+  opacity: 0.8;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speed Game</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>speed game</h1>
+    </header>
+    <main>
+      <div class="container-heading">
+        <h2 class="score-header">
+          Collected Bitcoins: <span id="score">123</span>
+        </h2>
+        <p class="info">i</p>
+      </div>
+      <div class="overlay">
+        <div class="modal">
+          <h3 class="modal-header">Instructions</h3>
+          <i class="material-icons" id="modal-close">close</i>
+          <ol>
+            <li>Start the game by clicking 'Start Game' button below.</li>
+            <li>Collect the Bitcoins by clicking every flashed coins.</li>
+            <li>
+              In case of failure, restart the game by clicking 'Restart Game'
+              below.
+            </li>
+            <p>Happy Playing!</p>
+          </ol>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn btn1 active" value="1"></button>
+        <button class="btn btn2" value="2"></button>
+        <button class="btn btn4" value="3"></button>
+        <button class="btn btn4" value="4"></button>
+      </div>
+      <button id="startStopBtn">Start Game</button>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
