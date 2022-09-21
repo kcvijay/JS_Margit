@@ -4,21 +4,21 @@ const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal");
 const coins = document.querySelectorAll(".coin");
 let scoreBox = document.querySelector("#score");
+const highScoreBox = document.querySelector("#high-score");
 const livesBox = document.querySelector(".lives");
 
 const btnStartGame = document.querySelector(".startBtn");
 const btnStopGame = document.querySelector(".stopBtn");
 
 let score = 0;
+let highScore = 0;
 let active = 0;
 let timer;
 let pace = 1000;
-let round = 0;
 let lives = 5;
 
-// Getting Random number (W3schools);
-const getRandomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+const getRandomNumber = () => {
+  return Math.floor(Math.random() * 4);
 };
 
 const toggleModal = () => {
@@ -26,6 +26,7 @@ const toggleModal = () => {
 };
 
 coins.forEach((coin, i) => {
+  coin.disabled = true;
   coin.addEventListener("click", () => clickCoin(i));
 });
 
@@ -33,17 +34,17 @@ const clickCoin = (i) => {
   if (i != active) {
     lives--;
     if (lives === 5) {
-      return (livesBox.textContent = "🧡🧡🧡🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡🧡");
     } else if (lives === 4) {
-      return (livesBox.textContent = "🧡🧡🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡");
     } else if (lives === 3) {
-      return (livesBox.textContent = "🧡🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡");
     } else if (lives === 2) {
-      return (livesBox.textContent = "🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡");
     } else if (lives === 1) {
-      return (livesBox.textContent = "🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡");
     } else if (lives === 0) {
-      livesBox.textContent = "";
+      livesBox.textContent = "Lives: 0";
       return endGame();
     }
   } else {
@@ -52,13 +53,20 @@ const clickCoin = (i) => {
   }
 };
 
+// if (score > highScore) {
+//   score == highScore;
+//   highScoreBox.textContent = score;
+// }
+
 const startGame = () => {
+  for (const coin of coins) {
+    coin.disabled = false;
+  }
   let nextActive = pickNew(active);
   coins[nextActive].classList.toggle("active");
   coins[active].classList.remove("active");
   active = nextActive;
 
-  console.log("Active number is: " + active);
   timer = setTimeout(startGame, pace);
   pace = pace - 5;
   function pickNew(active) {

@@ -26,6 +26,10 @@ button {
   transition: 0.3s ease;
 }
 
+.material-icons {
+  font-size: 30px;
+  cursor: pointer;
+}
 button:hover,
 button:active {
   opacity: 0.8;
@@ -106,30 +110,23 @@ main {
 }
 .container-heading {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   color: #fff;
   font-size: 20px;
-  padding: 30px;
+  padding: 30px 0;
 }
 
 .score-header {
   text-transform: capitalize;
 }
 
-.score-lives {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 #score {
   background: #fff;
   color: #333;
   border-radius: 11px;
-  padding: 10px 40px;
+  padding: 10px 25px;
   margin-left: 20px;
   font-size: 25px;
 }
@@ -139,21 +136,16 @@ main {
   margin: 20px;
 }
 
-.info {
-  height: 40px;
-  width: 40px;
-  font-size: 30px;
-  color: #333;
-  border: 1px solid rgb(173, 173, 173);
-  background-color: rgb(219, 219, 219);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s ease;
+.high-score-header {
+  font-size: 20px;
 }
 
-.info:hover,
-.info:active {
-  background-color: #fff;
+#high-score {
+  background: #fff;
+  color: #333;
+  border-radius: 11px;
+  padding: 10px 25px;
+  margin-left: 20px;
 }
 
 .coins {
@@ -169,6 +161,7 @@ main {
   width: 120px;
   height: 120px;
   margin: 15px;
+  margin-bottom: 40px;
   background-image: url(photo/bitcoin.png);
   background-position: center;
   background-size: cover;
