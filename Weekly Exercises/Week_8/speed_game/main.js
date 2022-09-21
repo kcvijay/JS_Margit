@@ -1,6 +1,7 @@
 const btnModalClose = document.querySelector("#modal-close");
 const btnInfo = document.querySelector(".info");
 const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
 const coins = document.querySelectorAll(".coin");
 let scoreBox = document.querySelector("#score");
 
@@ -8,34 +9,14 @@ const btnStartGame = document.querySelector("#startBtn");
 const btnStopGame = document.querySelector("#stopBtn");
 let randArray = [];
 
-function getRandom() {
-  let rand = Math.floor(Math.random() * 4);
-  console.log(rand);
-  randArray.push(rand);
-
-  setTimeout(getRandom, 1000);
-}
-
-setTimeout(getRandom, 1000);
-
 let score = 0;
-
-coins.forEach((circle, i) => {
-  circle.addEventListener("click", () => clickCoin(i));
-});
-
-const clickCoin = (i) => {
-  score++;
-  console.log(score);
-  scoreBox.textContent = score + " " + "₿";
+let active = 0;
+let pace = 1000;
+let timer;
+// Getting Random number (W3schools);
+const getRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
-// const endGame = () => {
-//   console.log("Game ended");
-// };
-
-// btnStartGame.addEventListener("click", startGame);
-// btnStopGame.addEventListener("click", endGame);
 
 const toggleModal = () => {
   overlay.classList.toggle("visible");
@@ -44,6 +25,54 @@ btnInfo.addEventListener("click", toggleModal);
 
 btnModalClose.addEventListener("click", toggleModal);
 
+coins.forEach((coin, i) => {
+  coin.addEventListener("click", () => clickCoin(i));
+});
+
+const clickCoin = (i) => {
+  if (i != active) {
+    endGame();
+  } else {
+    score++;
+    scoreBox.textContent = score;
+  }
+};
+
+const startGame = () => {
+  let nextActive = pickNew(active);
+  coins[nextActive].classList.toggle("active");
+  coins[active].classList.remove("active");
+  active = nextActive;
+
+  console.log("Active number is: " + active);
+  timer = setTimeout(startGame, pace);
+  pace = pace - 10;
+
+  function pickNew(active) {
+    let nextActive = getRandomNumber(0, 3);
+    if (nextActive != active) {
+      return nextActive;
+    } else {
+      return pickNew(active);
+    }
+  }
+};
+
+const endGame = () => {
+  overlay.style.display = "flex";
+  modal.innerHTML = `<h3>Oops! Game Over.</h3>
+  <p>Your score is ${score}</p>`;
+  clearTimeout(timer);
+};
+
+const resetGame = () => {
+  window.location.reload();
+};
+
+btnStartGame.addEventListener("click", startGame);
+btnStopGame.addEventListener("click", endGame);
+btnModalClose.addEventListener("click", resetGame);
+
 // const startGame = () => {
 //   let count = 0;
 //   //Throwing random number every second.
@@ -51,8 +80,7 @@ btnModalClose.addEventListener("click", toggleModal);
 //     let rand = Math.floor(Math.random() * 4);
 //     console.log(rand);
 //   }, 1000);
-//   for (const coin of coins) {
-//     coin.addEventListener("click", () => {
+//
 //       let indexOfCoin = Array.from(coin.parentNode.children).indexOf(coin);
 //       let rand = coin;
 //       console.log(indexOfCoin);

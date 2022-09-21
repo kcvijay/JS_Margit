@@ -94,7 +94,7 @@ main {
   top: 10px;
   right: 10px;
   background: red;
-  padding: 0.5rem;
+  padding: 0.3rem;
   color: #fff;
   border-radius: 50%;
   float: right;
@@ -175,6 +175,6 @@ main {
   opacity: 0.8;
 }
 
-#stopBtn {
+/* #stopBtn {
   display: none;
-}
+} */
