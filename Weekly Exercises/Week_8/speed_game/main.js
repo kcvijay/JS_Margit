@@ -6,9 +6,8 @@ const coins = document.querySelectorAll(".coin");
 let scoreBox = document.querySelector("#score");
 const livesBox = document.querySelector(".lives");
 
-const btnStartGame = document.querySelector("#startBtn");
-const btnStopGame = document.querySelector("#stopBtn");
-let randArray = [];
+const btnStartGame = document.querySelector(".startBtn");
+const btnStopGame = document.querySelector(".stopBtn");
 
 let score = 0;
 let active = 0;
@@ -54,10 +53,6 @@ const clickCoin = (i) => {
 };
 
 const startGame = () => {
-  // if (rounds >= 3) {
-  //   return endGame();
-  // }
-
   let nextActive = pickNew(active);
   coins[nextActive].classList.toggle("active");
   coins[active].classList.remove("active");
@@ -65,7 +60,7 @@ const startGame = () => {
 
   console.log("Active number is: " + active);
   timer = setTimeout(startGame, pace);
-  pace = pace - 10;
+  pace = pace - 5;
   function pickNew(active) {
     let nextActive = getRandomNumber(0, 3);
     if (nextActive != active) {
@@ -79,9 +74,9 @@ const startGame = () => {
 const endGame = () => {
   overlay.style.display = "flex";
   modal.innerHTML = `
-  <i class="material-icons" id="modal-close">close</i>
-  <h3>Oops! Game Over.</h3>
-  <p>Your score is ${score}</p>`;
+  <h3>Game Over!</h3>
+  <p>Your current score is ${score}.</p>
+  <p>Reset the game by clicking the screen.</p>`;
   clearTimeout(timer);
 };
 
@@ -89,26 +84,15 @@ const resetGame = () => {
   window.location.reload();
 };
 
+function displayToggle() {
+  btnStartGame.classList.toggle("display");
+  btnStopGame.classList.toggle("display");
+}
+
 btnStartGame.addEventListener("click", startGame);
+btnStartGame.addEventListener("click", displayToggle);
 btnStopGame.addEventListener("click", endGame);
 
 btnInfo.addEventListener("click", toggleModal);
-btnModalClose.addEventListener("click", toggleModal, resetGame);
-
-// const startGame = () => {
-//   let count = 0;
-//   //Throwing random number every second.
-//   setInterval(function () {
-//     let rand = Math.floor(Math.random() * 4);
-//     console.log(rand);
-//   }, 1000);
-//
-//       let indexOfCoin = Array.from(coin.parentNode.children).indexOf(coin);
-//       let rand = coin;
-//       console.log(indexOfCoin);
-//       count++;
-//       console.log(count);
-//       coin.classList.add("active");
-//     });
-//   }
-// };
+overlay.addEventListener("click", resetGame);
+btnModalClose.addEventListener("click", toggleModal);

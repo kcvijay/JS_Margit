@@ -104,15 +104,14 @@ main {
 .visible {
   display: flex;
 }
-
 .container-heading {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   color: #fff;
   font-size: 20px;
-  padding-top: 30px;
+  padding: 30px;
 }
 
 .score-header {
@@ -123,6 +122,7 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #score {
@@ -136,7 +136,7 @@ main {
 
 .lives {
   font-size: 25px;
-  margin-left: 20px;
+  margin: 20px;
 }
 
 .info {
@@ -162,19 +162,19 @@ main {
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 .coin {
-  width: 150px;
-  height: 150px;
-  margin: 20px;
+  width: 120px;
+  height: 120px;
+  margin: 15px;
   background-image: url(photo/bitcoin.png);
   background-position: center;
   background-size: cover;
   border-radius: 50%;
   filter: grayscale(1);
-  transition: 0.3s ease;
+  transition: 0.2s ease;
   cursor: pointer;
 }
 
@@ -188,6 +188,6 @@ main {
   opacity: 0.8;
 }
 
-#stopBtn {
+.display {
   display: none;
 }
