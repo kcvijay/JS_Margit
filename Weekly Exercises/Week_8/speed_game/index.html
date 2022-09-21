@@ -17,7 +17,12 @@
     </header>
     <main>
       <div class="container-heading">
-        <h2 class="score-header">Collected Coins: <span id="score"></span></h2>
+        <div class="score-lives">
+          <h2 class="score-header">
+            Collected Coins: <span id="score"></span>
+          </h2>
+          <div class="lives">🧡🧡🧡🧡🧡</div>
+        </div>
         <p class="info">i</p>
       </div>
       <div class="overlay" onclick="this.style.display = 'none'">
@@ -27,6 +32,10 @@
           <ol>
             <li>Start the game by clicking 'Start Game' button below.</li>
             <li>Collect the Bitcoins by clicking every flashed coins.</li>
+            <li>
+              You will have 5 lives 🧡 at the beginning. On every missed click,
+              you will loose one. Game will be over on all lives spent.
+            </li>
             <li>
               In case of failure, restart the game by clicking 'Restart Game'
               below.

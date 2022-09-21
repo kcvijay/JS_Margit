@@ -107,23 +107,36 @@ main {
 
 .container-heading {
   display: flex;
-  justify-content: space-between;
-  padding: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   color: #fff;
   font-size: 20px;
+  padding-top: 30px;
 }
 
 .score-header {
   text-transform: capitalize;
 }
 
+.score-lives {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 #score {
   background: #fff;
   color: #333;
   border-radius: 11px;
-  padding: 10px 25px;
+  padding: 10px 40px;
   margin-left: 20px;
   font-size: 25px;
+}
+
+.lives {
+  font-size: 25px;
+  margin-left: 20px;
 }
 
 .info {
@@ -175,6 +188,6 @@ main {
   opacity: 0.8;
 }
 
-/* #stopBtn {
+#stopBtn {
   display: none;
-} */
+}

@@ -4,6 +4,7 @@ const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal");
 const coins = document.querySelectorAll(".coin");
 let scoreBox = document.querySelector("#score");
+const livesBox = document.querySelector(".lives");
 
 const btnStartGame = document.querySelector("#startBtn");
 const btnStopGame = document.querySelector("#stopBtn");
@@ -14,6 +15,7 @@ let active = 0;
 let timer;
 let pace = 1000;
 let round = 0;
+let lives = 5;
 
 // Getting Random number (W3schools);
 const getRandomNumber = (min, max) => {
@@ -23,9 +25,6 @@ const getRandomNumber = (min, max) => {
 const toggleModal = () => {
   overlay.classList.toggle("visible");
 };
-btnInfo.addEventListener("click", toggleModal);
-
-btnModalClose.addEventListener("click", toggleModal);
 
 coins.forEach((coin, i) => {
   coin.addEventListener("click", () => clickCoin(i));
@@ -33,7 +32,21 @@ coins.forEach((coin, i) => {
 
 const clickCoin = (i) => {
   if (i != active) {
-    endGame();
+    lives--;
+    if (lives === 5) {
+      return (livesBox.textContent = "🧡🧡🧡🧡🧡");
+    } else if (lives === 4) {
+      return (livesBox.textContent = "🧡🧡🧡🧡");
+    } else if (lives === 3) {
+      return (livesBox.textContent = "🧡🧡🧡");
+    } else if (lives === 2) {
+      return (livesBox.textContent = "🧡🧡");
+    } else if (lives === 1) {
+      return (livesBox.textContent = "🧡");
+    } else if (lives === 0) {
+      livesBox.textContent = "";
+      return endGame();
+    }
   } else {
     score++;
     scoreBox.textContent = score;
@@ -65,7 +78,9 @@ const startGame = () => {
 
 const endGame = () => {
   overlay.style.display = "flex";
-  modal.innerHTML = `<h3>Oops! Game Over.</h3>
+  modal.innerHTML = `
+  <i class="material-icons" id="modal-close">close</i>
+  <h3>Oops! Game Over.</h3>
   <p>Your score is ${score}</p>`;
   clearTimeout(timer);
 };
@@ -76,7 +91,9 @@ const resetGame = () => {
 
 btnStartGame.addEventListener("click", startGame);
 btnStopGame.addEventListener("click", endGame);
-btnModalClose.addEventListener("click", resetGame);
+
+btnInfo.addEventListener("click", toggleModal);
+btnModalClose.addEventListener("click", toggleModal, resetGame);
 
 // const startGame = () => {
 //   let count = 0;
