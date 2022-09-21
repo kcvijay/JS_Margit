@@ -11,8 +11,10 @@ let randArray = [];
 
 let score = 0;
 let active = 0;
-let pace = 1000;
 let timer;
+let pace = 1000;
+let round = 0;
+
 // Getting Random number (W3schools);
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -39,6 +41,10 @@ const clickCoin = (i) => {
 };
 
 const startGame = () => {
+  // if (rounds >= 3) {
+  //   return endGame();
+  // }
+
   let nextActive = pickNew(active);
   coins[nextActive].classList.toggle("active");
   coins[active].classList.remove("active");
@@ -47,7 +53,6 @@ const startGame = () => {
   console.log("Active number is: " + active);
   timer = setTimeout(startGame, pace);
   pace = pace - 10;
-
   function pickNew(active) {
     let nextActive = getRandomNumber(0, 3);
     if (nextActive != active) {
