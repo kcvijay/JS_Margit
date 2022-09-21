@@ -48,8 +48,8 @@ header h1 {
 main {
   background-image: linear-gradient(
       to bottom left,
-      rgba(0, 0, 0, 0.8),
-      rgba(0, 0, 0, 0.8)
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.9)
     ),
     url("photo/money.webp");
   background-position: right;
@@ -76,9 +76,9 @@ main {
   max-width: 600px;
   min-width: 300px;
   text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 1px;
-  font-size: 18px;
   background-color: #fff;
   padding: 30px;
   border-radius: 7px;
@@ -91,8 +91,8 @@ main {
 
 #modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   background: red;
   padding: 0.5rem;
   color: #fff;
@@ -118,11 +118,11 @@ main {
 }
 
 #score {
-  border: 1px solid #fff;
+  background: #fff;
+  color: #333;
   border-radius: 11px;
   padding: 10px 25px;
   margin-left: 20px;
-  color: #fff;
   font-size: 25px;
 }
 
@@ -143,38 +143,35 @@ main {
   background-color: #fff;
 }
 
-.btns {
+.coins {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: 50px 0;
 }
 
-.btn {
-  width: 160px;
-  height: 160px;
-  margin: 10px;
-  background-image: url(photo/bitcoin.jpg);
+.coin {
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  background-image: url(photo/bitcoin.png);
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-  border: 10px solid #fff;
-  border-radius: 33%;
+  border-radius: 50%;
   filter: grayscale(1);
   transition: 0.3s ease;
   cursor: pointer;
 }
 
-.btn.active {
+.coin.active {
+  box-shadow: 0 0 50px gold;
   filter: grayscale(0);
-  border: 10px solid #d2691e;
-  box-shadow: 0 0 40px chocolate;
 }
 
-.btn:hover,
-.btn:active {
+.coin:hover,
+.coin:active {
   opacity: 0.8;
 }
 
