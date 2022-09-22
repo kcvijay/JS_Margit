@@ -84,6 +84,12 @@ const startGame = () => {
   }
 };
 
+const gameWinAnimation = (item) => {
+  item.style.backgroundImage = "url('photo/confetti.gif')";
+  item.style.backgroundSize = "cover";
+  item.style.backgroundPosition = "center";
+};
+
 const endGame = () => {
   audioGameOver.play();
   overlay.style.display = "flex";
@@ -94,6 +100,7 @@ const endGame = () => {
   clearTimeout(timer);
   if (score >= 10) {
     audioGameSuccess.play();
+    gameWinAnimation(modal);
   }
 };
 
