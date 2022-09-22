@@ -10,6 +10,9 @@ const livesBox = document.querySelector(".lives");
 const btnStartGame = document.querySelector(".startBtn");
 const btnStopGame = document.querySelector(".stopBtn");
 
+const audio = new Audio("photo/coin-sound.wav");
+const audioGameOver = new Audio("photo/game-over.wav");
+
 let score = 0;
 let highScore = 0;
 let active = 0;
@@ -31,6 +34,7 @@ coins.forEach((coin, i) => {
 });
 
 const clickCoin = (i) => {
+  audio.play();
   if (i != active) {
     lives--;
     if (lives === 5) {
@@ -80,6 +84,7 @@ const startGame = () => {
 };
 
 const endGame = () => {
+  audioGameOver.play();
   overlay.style.display = "flex";
   modal.innerHTML = `
   <h3>Game Over!</h3>
