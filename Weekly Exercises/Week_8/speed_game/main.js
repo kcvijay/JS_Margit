@@ -12,6 +12,7 @@ const btnStopGame = document.querySelector(".stopBtn");
 
 const audio = new Audio("photo/coin-sound.wav");
 const audioGameOver = new Audio("photo/game-over.wav");
+const audioGameSuccess = new Audio("photo/game-success.wav");
 
 let score = 0;
 let highScore = 0;
@@ -88,9 +89,12 @@ const endGame = () => {
   overlay.style.display = "flex";
   modal.innerHTML = `
   <h3>Game Over!</h3>
-  <p>Your current score is ${score}.</p>
+  <p>Your collected ${score} coin/s.</p>
   <p>Reset the game by clicking the screen.</p>`;
   clearTimeout(timer);
+  if (score >= 10) {
+    audioGameSuccess.play();
+  }
 };
 
 const resetGame = () => {
