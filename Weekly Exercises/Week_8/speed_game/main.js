@@ -58,11 +58,6 @@ const clickCoin = (i) => {
   }
 };
 
-// if (score > highScore) {
-//   score == highScore;
-//   highScoreBox.textContent = score;
-// }
-
 const startGame = () => {
   for (const coin of coins) {
     coin.disabled = false;
@@ -84,6 +79,7 @@ const startGame = () => {
   }
 };
 
+//Addition animation on game win.
 const gameWinAnimation = (item) => {
   item.style.backgroundImage = "url('photo/confetti.gif')";
   item.style.backgroundSize = "cover";
@@ -93,12 +89,21 @@ const gameWinAnimation = (item) => {
 const endGame = () => {
   audioGameOver.play();
   overlay.style.display = "flex";
-  modal.innerHTML = `
-  <h3>Game Over!</h3>
-  <p>Your collected ${score} coin/s.</p>
-  <p>Reset the game by clicking the screen.</p>`;
+
+  if (score <= 1) {
+    modal.innerHTML = `
+    <h3>Game Over!</h3>
+    <p>Your collected ${score} coin.</p>
+    <p>Reset the game by clicking the screen.</p>`;
+  } else {
+    modal.innerHTML = `
+    <h3>Game Over!</h3>
+    <p>Your collected ${score} coins.</p>
+    <p>Reset the game by clicking the screen.</p>`;
+  }
+
   clearTimeout(timer);
-  if (score >= 10) {
+  if (score >= 20) {
     audioGameSuccess.play();
     gameWinAnimation(modal);
   }
