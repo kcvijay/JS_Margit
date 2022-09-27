@@ -14,7 +14,6 @@ const btnStopGame = document.querySelector(".stopBtn");
 
 //Sounds
 const coinSound = new Audio("media/coin.mp3");
-const wrongCoinSound = new Audio("media/wrong-coin.mp3");
 const gameStartSound = new Audio("media/game-start.mp3");
 const gameOverSound = new Audio("media/game-over.wav");
 const gameSuccessSound = new Audio("media/game-success.wav");
