@@ -2,6 +2,7 @@ const btnModalClose = document.querySelector(".modal-close");
 const btnInfo = document.querySelector(".info");
 const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal");
+const infoTxt = document.querySelector(".info-txt");
 const scoreModal = document.querySelector(".score-modal");
 const coins = document.querySelectorAll(".coin");
 const scoreBox = document.querySelector("#score");
@@ -121,13 +122,13 @@ const gameEnds = () => {
       <i class="material-icons modal-close">close</i>
       <h3>Game Over!</h3>
       <p>You collected ${score} coin.</p>
-      <p>High score is ${highScore}.</p>`;
+      <p>Best collection is ${highScore}.</p>`;
   } else {
     modal.innerHTML = `
       <i class="material-icons modal-close">close</i>
       <h3>Game Over!</h3>
       <p>You collected ${score} coins.</p>
-      <p>High score is ${highScore}.</p>`;
+      <p>Best collection is ${highScore}.</p>`;
   }
 
   if (score >= 15) {
@@ -143,51 +144,20 @@ const gameEnds = () => {
 
 btnStartGame.addEventListener("click", () => {
   gameStarts();
-  btnStartGame.classList.toggle("display-none");
-  btnStopGame.classList.toggle("display-none");
+  toggleDisplayNone();
 });
 btnStopGame.addEventListener("click", gameEnds);
 /*************/
-// btnModalClose.addEventListener("click", () => {
-//   overlay.style.display = "none";
-//   clickCoin();
-//   lives = 5;
-//   livesBox.textContent = `🧡 🧡 🧡 🧡 🧡`;
-//   btnStartGame.classList.toggle("display-none");
-//   btnStopGame.classList.toggle("display-none");
-// });
-
-const modalInfoTxt = `
-<h3 class="modal-header">Instructions</h3>
-          <i class="material-icons modal-close">close</i>
-          <ol>
-            <li>Start the game by clicking 'Start Game' button below.</li>
-            <li>Collect the Bitcoins by clicking every flashed coins.</li>
-            <li>Flashing speed will increase in every flash.</li>
-            <li>
-              You will have 5 lives 🧡 at the beginning. On every missed
-              collection, you will loose one. Game will be over on all lives
-              spent.
-            </li>
-            <li>
-              In case of failure, restart the game by clicking 'Restart Game'
-              below.
-            </li>
-            <p>Happy Playing!</p>
-          </ol>
-`;
 
 btnInfo.addEventListener("click", () => {
-  overlay.style.display = "flex";
-  modal.innerHTML = modalInfoTxt;
+  infoTxt.classList.toggle("display-none");
 });
 
 overlay.addEventListener("click", () => {
   overlay.style.display = "none";
   lives = 5;
-  livesBox.textContent = `🧡 🧡 🧡 🧡 🧡`;
-  btnStartGame.classList.toggle("display-none");
-  btnStopGame.classList.toggle("display-none");
+  livesBox.textContent = `🧡🧡🧡🧡🧡`;
+  toggleDisplayNone();
 });
 
 /*************/
