@@ -16,8 +16,8 @@ const btnStopGame = document.querySelector(".stopBtn");
 const coinSound = new Audio("media/coin.mp3");
 const wrongCoinSound = new Audio("media/wrong-coin.mp3");
 const gameStartSound = new Audio("media/game-start.mp3");
-const audioGameOver = new Audio("media/game-over.wav");
-const audioGameSuccess = new Audio("media/game-success.wav");
+const gameOverSound = new Audio("media/game-over.wav");
+const gameSuccessSound = new Audio("media/game-success.wav");
 
 //Global vars
 let score = 0;
@@ -56,7 +56,6 @@ coins.forEach((coin, i) => {
 });
 
 const clickCoin = (i) => {
-  coinSound.play();
   if (i != active) {
     lives--;
     if (lives === 5) {
@@ -74,6 +73,7 @@ const clickCoin = (i) => {
       return gameEnds();
     }
   } else {
+    coinSound.play();
     score++;
     scoreBox.textContent = score;
   }
@@ -85,6 +85,8 @@ const gameStarts = () => {
   for (const coin of coins) {
     coin.disabled = false;
   }
+
+  //From the courtesy of Margit. :D
   let nextActive = pickNew(active);
   coins[nextActive].classList.toggle("active");
   coins[active].classList.remove("active");
@@ -105,13 +107,12 @@ const gameStarts = () => {
 /**** On Ending Game *****/
 
 const gameEnds = () => {
-  overlay.style.display = "flex";
-  audioGameOver.play();
-  clearTimeout(timer);
   for (const coin of coins) {
     coin.disabled = true;
   }
-
+  overlay.style.display = "flex";
+  gameOverSound.play();
+  clearTimeout(timer);
   // Conditions on score.
   if (score >= highScore) {
     highScore = score;
@@ -132,7 +133,7 @@ const gameEnds = () => {
   }
 
   if (score >= 15) {
-    audioGameSuccess.play();
+    gameSuccessSound.play();
     gameWinAnimation(modal);
   }
 

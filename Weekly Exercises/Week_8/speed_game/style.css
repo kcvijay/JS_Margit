@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px;
+}
+
+:root {
+  --primary-color: #d2691e;
+}
+
 body {
   font-family: "Acme", sans-serif;
   width: 100vw;
@@ -14,8 +22,8 @@ body {
 }
 
 button {
-  background: chocolate;
-  padding: 15px 30px;
+  background: var(--primary-color);
+  padding: 1.5rem 2rem;
   font-family: inherit;
   font-size: 18px;
   text-transform: uppercase;
@@ -26,7 +34,7 @@ button {
 }
 
 .material-icons {
-  font-size: 30px;
+  font-size: 3rem;
   cursor: pointer;
 }
 button:hover,
@@ -36,14 +44,14 @@ button:active {
 
 header {
   position: relative;
-  padding: 20px 0;
-  background: rgb(254, 164, 100);
+  padding: 2rem 0;
+  background: var(--primary-color);
   border-bottom: 1px solid #f1f1f1;
 }
 
 header h1 {
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 5rem;
   color: #fff;
 }
 
@@ -75,11 +83,11 @@ main {
 }
 
 .modal {
-  max-width: 600px;
-  min-width: 300px;
+  max-width: 60rem;
+  min-width: 30rem;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.5;
   background-color: #fff;
   padding: 30px;
@@ -100,8 +108,8 @@ main {
 
 .modal-close {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -1.5rem;
+  right: -1.5rem;
   background: red;
   padding: 0.1rem;
   color: #fff;
@@ -115,60 +123,55 @@ main {
   display: flex;
 }
 .container-heading {
+  position: relative;
   background-color: rgba(0, 0, 0, 0.613);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   color: #fff;
-  font-size: 20px;
-  padding: 30px 0;
+  font-size: 2rem;
+  padding: 3rem 0;
 }
 .info-txt {
   position: absolute;
-  background: rgba(255, 255, 255, 0.8);
+  background: #fff;
   border-radius: 11px;
+  box-shadow: 0 0 5rem rgba(255, 255, 255, 0.8);
   color: #333;
-  padding: 2rem;
-  max-width: 300px;
+  padding: 3rem;
+  max-width: 30rem;
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-family: Arial, Helvetica, sans-serif;
-  top: 50%;
-  right: 50%;
+  top: 100%;
+  right: 10%;
   transform: translate((-50%, -50%));
   z-index: 1;
 }
 
 .score-header {
   text-transform: capitalize;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
-#score {
-  background: #fff;
-  color: #333;
-  border-radius: 11px;
-  padding: 10px 25px;
-  margin-left: 20px;
-  font-size: 25px;
-}
-
-.lives {
-  font-size: 25px;
-  margin: 20px;
-}
-
-.high-score-header {
-  font-size: 20px;
-}
-
+#score,
 #high-score {
   background: #fff;
   color: #333;
-  border-radius: 11px;
-  padding: 10px 25px;
-  margin-left: 20px;
+  border-radius: 1rem;
+  padding: 1rem 2.5rem;
+  margin-left: 2rem;
+  font-size: 2.5rem;
+}
+
+.lives {
+  font-size: 2.5rem;
+  margin: 2rem;
+}
+
+.high-score-header {
+  font-size: 2rem;
 }
 
 .coins {
@@ -177,32 +180,30 @@ main {
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 
 .coin {
-  width: 120px;
-  height: 120px;
-  margin: 15px;
-  margin-bottom: 40px;
+  width: 15rem;
+  height: 15rem;
+  margin: 1.5rem;
+  border-radius: 50%;
+  margin-bottom: 4rem;
   background-image: url("media/bitcoin.png");
   background-position: center;
   background-size: cover;
-  border-radius: 50%;
   filter: grayscale(1);
-  transition: 0.2s ease;
   cursor: pointer;
 }
 
 .coin.active {
-  border: 3px solid gold;
-  box-shadow: 0 0 50px gold;
+  box-shadow: 0 0 50px var(--primary-color);
   filter: grayscale(0);
 }
 
 .coin:hover,
 .coin:active {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .div-reset {
