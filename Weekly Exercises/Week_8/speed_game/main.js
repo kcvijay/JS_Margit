@@ -10,9 +10,11 @@ const livesBox = document.querySelector(".lives");
 const btnStartGame = document.querySelector(".startBtn");
 const btnStopGame = document.querySelector(".stopBtn");
 
-const audio = new Audio("photo/coin-sound.wav");
-const audioGameOver = new Audio("photo/game-over.wav");
-const audioGameSuccess = new Audio("photo/game-success.wav");
+const coinSound = new Audio("media/coin.mp3");
+const wrongCoinSound = new Audio("media/wrong-coin.mp3");
+const gameStartSound = new Audio("media/game-start.mp3");
+const audioGameOver = new Audio("media/game-over.wav");
+const audioGameSuccess = new Audio("media/game-success.wav");
 
 let score = 0;
 let highScore = 0;
@@ -35,19 +37,19 @@ coins.forEach((coin, i) => {
 });
 
 const clickCoin = (i) => {
-  audio.play();
+  coinSound.play();
   if (i != active) {
     lives--;
     if (lives === 5) {
       return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡🧡");
     } else if (lives === 4) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡🤍");
     } else if (lives === 3) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🤍🤍");
     } else if (lives === 2) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🤍🤍🤍");
     } else if (lives === 1) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡");
+      return (livesBox.textContent = "Lives:" + "  " + "🧡🤍🤍🤍🤍");
     } else if (lives === 0) {
       livesBox.textContent = "Lives: 0";
       return endGame();
@@ -56,6 +58,10 @@ const clickCoin = (i) => {
     score++;
     scoreBox.textContent = score;
   }
+};
+
+const startSound = () => {
+  gameStartSound.play();
 };
 
 const startGame = () => {
@@ -81,7 +87,7 @@ const startGame = () => {
 
 //Addition animation on game win.
 const gameWinAnimation = (item) => {
-  item.style.backgroundImage = "url('photo/confetti.gif')";
+  item.style.backgroundImage = "url('media/confetti.gif')";
   item.style.backgroundSize = "cover";
   item.style.backgroundPosition = "center";
 };
@@ -103,7 +109,7 @@ const endGame = () => {
   }
 
   clearTimeout(timer);
-  if (score >= 20) {
+  if (score >= 15) {
     audioGameSuccess.play();
     gameWinAnimation(modal);
   }
@@ -118,7 +124,10 @@ function displayToggle() {
   btnStopGame.classList.toggle("display");
 }
 
-btnStartGame.addEventListener("click", startGame);
+btnStartGame.addEventListener("click", () => {
+  gameStartSound.play();
+  startGame();
+});
 btnStartGame.addEventListener("click", displayToggle);
 btnStopGame.addEventListener("click", endGame);
 

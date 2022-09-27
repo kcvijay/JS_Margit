@@ -55,7 +55,7 @@ main {
       rgba(0, 0, 0, 0.9),
       rgba(0, 0, 0, 0.9)
     ),
-    url("photo/money.webp");
+    url("media/money.webp");
   background-position: right;
   background-size: cover;
   background-repeat: no-repeat;
@@ -74,7 +74,6 @@ main {
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 999;
-  bgs
 }
 
 .modal {
@@ -163,7 +162,7 @@ main {
   height: 120px;
   margin: 15px;
   margin-bottom: 40px;
-  background-image: url(photo/bitcoin.png);
+  background-image: url("media/bitcoin.png");
   background-position: center;
   background-size: cover;
   border-radius: 50%;
@@ -173,6 +172,7 @@ main {
 }
 
 .coin.active {
+  border: 3px solid gold;
   box-shadow: 0 0 50px gold;
   filter: grayscale(0);
 }
