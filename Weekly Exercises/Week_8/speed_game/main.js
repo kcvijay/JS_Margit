@@ -32,10 +32,6 @@ const getRandomNumber = () => {
 };
 
 /******* Styling Functions *****/
-const toggleOverlay = () => {
-  overlay.style.display = "flex";
-  modal.style.display = "block";
-};
 
 const toggleDisplayNone = () => {
   btnStartGame.classList.toggle("display-none");
