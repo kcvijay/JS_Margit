@@ -1,9 +1,10 @@
-const btnModalClose = document.querySelector("#modal-close");
+const btnModalClose = document.querySelector(".modal-close");
 const btnInfo = document.querySelector(".info");
 const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal");
+const scoreModal = document.querySelector(".score-modal");
 const coins = document.querySelectorAll(".coin");
-let scoreBox = document.querySelector("#score");
+const scoreBox = document.querySelector("#score");
 const highScoreBox = document.querySelector("#high-score");
 const livesBox = document.querySelector(".lives");
 
@@ -41,22 +42,26 @@ const clickCoin = (i) => {
   if (i != active) {
     lives--;
     if (lives === 5) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡🧡");
+      return (livesBox.textContent = "🧡🧡🧡🧡🧡");
     } else if (lives === 4) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🧡🤍");
+      return (livesBox.textContent = "🧡🧡🧡🧡🤍");
     } else if (lives === 3) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🧡🤍🤍");
+      return (livesBox.textContent = "🧡🧡🧡🤍🤍");
     } else if (lives === 2) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🧡🤍🤍🤍");
+      return (livesBox.textContent = "🧡🧡🤍🤍🤍");
     } else if (lives === 1) {
-      return (livesBox.textContent = "Lives:" + "  " + "🧡🤍🤍🤍🤍");
+      return (livesBox.textContent = "🧡🤍🤍🤍🤍");
     } else if (lives === 0) {
-      livesBox.textContent = "Lives: 0";
-      return endGame();
+      livesBox.textContent = "🤍🤍🤍🤍🤍";
+      return endGameOnLife();
     }
   } else {
     score++;
     scoreBox.textContent = score;
+    if (score >= highScore) {
+      highScore = score;
+      highScoreBox.textContent = highScore;
+    }
   }
 };
 
@@ -76,13 +81,41 @@ const startGame = () => {
   timer = setTimeout(startGame, pace);
   pace = pace - 5;
   function pickNew(active) {
-    let nextActive = getRandomNumber(0, 3);
+    let nextActive = getRandomNumber();
     if (nextActive != active) {
       return nextActive;
     } else {
       return pickNew(active);
     }
   }
+};
+
+const gameEnds = () => {
+  clearTimeout(timer);
+  audioGameOver.play();
+  toggleModal();
+  modal.classList.toggle("display");
+  // Conditions on score.
+  if (score <= 1) {
+    scoreModal.innerHTML = `
+    <i class="material-icons modal-close">close</i>
+    <h3>Game Over!</h3>
+    <p>You collected ${score} coin.</p>
+    <p>High score is ${highScore}.</p>`;
+  } else {
+    scoreModal.innerHTML = `
+    <i class="material-icons modal-close">close</i>
+    <h3>Game Over!</h3>
+    <p>You collected ${score} coins.</p>
+    <p>High score is ${highScore}.</p>`;
+  }
+  if (score >= 15) {
+    audioGameSuccess.play();
+    gameWinAnimation(scoreModal);
+  }
+
+  score = 0;
+  scoreBox.textContent = 0;
 };
 
 //Addition animation on game win.
@@ -92,45 +125,22 @@ const gameWinAnimation = (item) => {
   item.style.backgroundPosition = "center";
 };
 
-const endGame = () => {
-  audioGameOver.play();
-  overlay.style.display = "flex";
-
-  if (score <= 1) {
-    modal.innerHTML = `
-    <h3>Game Over!</h3>
-    <p>Your collected ${score} coin.</p>
-    <p>Reset the game by clicking the screen.</p>`;
-  } else {
-    modal.innerHTML = `
-    <h3>Game Over!</h3>
-    <p>Your collected ${score} coins.</p>
-    <p>Reset the game by clicking the screen.</p>`;
-  }
-
-  clearTimeout(timer);
-  if (score >= 15) {
-    audioGameSuccess.play();
-    gameWinAnimation(modal);
-  }
-};
-
-const resetGame = () => {
-  window.location.reload();
-};
-
 function displayToggle() {
   btnStartGame.classList.toggle("display");
   btnStopGame.classList.toggle("display");
 }
 
 btnStartGame.addEventListener("click", () => {
-  gameStartSound.play();
+  startSound();
+  displayToggle();
   startGame();
 });
-btnStartGame.addEventListener("click", displayToggle);
-btnStopGame.addEventListener("click", endGame);
+
+btnStopGame.addEventListener("click", () => {
+  endGameOnStop();
+});
 
 btnInfo.addEventListener("click", toggleModal);
-overlay.addEventListener("click", resetGame);
-btnModalClose.addEventListener("click", toggleModal);
+btnModalClose.addEventListener("click", () => {
+  toggleModal();
+});

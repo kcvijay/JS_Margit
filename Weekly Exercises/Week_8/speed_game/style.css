@@ -23,7 +23,6 @@ button {
   border: 3px solid #fff;
   color: #fff;
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
 .material-icons {
@@ -93,12 +92,19 @@ main {
   transform: translate(-50%, -50%);
 }
 
-#modal-close {
+.score-modal {
+  background-color: #fff;
+  padding: 4rem;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  z-index: -1;
+}
+
+.modal-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
   background: red;
-  padding: 0.3rem;
+  padding: 0.1rem;
   color: #fff;
   border-radius: 50%;
   float: right;

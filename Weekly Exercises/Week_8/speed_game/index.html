@@ -21,16 +21,16 @@
     <main>
       <div class="container-heading">
         <h2 class="score-header">Collected Coins: <span id="score">0</span></h2>
-        <div class="lives">Lives: 🧡🧡🧡🧡🧡</div>
-        <!-- <p class="high-score-header">
-          High Score: <span id="high-score">0</span>
-        </p> -->
+        <div class="lives">🧡🧡🧡🧡🧡</div>
+        <p class="high-score-header">
+          High Score: <span id="high-score">00</span>
+        </p>
         <i class="material-icons info">info</i>
       </div>
-      <div class="overlay" onclick="this.style.display = 'none'">
+      <div class="overlay" onclick="this.style.display='none'">
         <div class="modal">
           <h3 class="modal-header">Instructions</h3>
-          <i class="material-icons" id="modal-close">close</i>
+          <i class="material-icons modal-close">close</i>
           <ol>
             <li>Start the game by clicking 'Start Game' button below.</li>
             <li>Collect the Bitcoins by clicking every flashed coins.</li>
@@ -47,6 +47,7 @@
             <p>Happy Playing!</p>
           </ol>
         </div>
+       <div class="score-modal"></div>
       </div>
       <div class="coins">
         <button class="coin coin1"></button>
@@ -54,8 +55,8 @@
         <button class="coin coin4"></button>
         <button class="coin coin4"></button>
       </div>
-      <button class="material-icons startBtn">play_arrow</button>
-      <button class="material-icons stopBtn display">stop</button>
+      <button class="startBtn">Play</button>
+      <button class="stopBtn display">Stop</button>
     </main>
     <script src="main.js"></script>
   </body>
