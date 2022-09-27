@@ -106,15 +106,17 @@ main {
   background: red;
   padding: 0.1rem;
   color: #fff;
+  border: 2px solid #fff;
   border-radius: 50%;
   float: right;
   cursor: pointer;
 }
 
-.visible {
+.display-flex {
   display: flex;
 }
 .container-heading {
+  background-color: rgba(0, 0, 0, 0.613);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -188,6 +190,14 @@ main {
   opacity: 0.8;
 }
 
-.display {
+.div-reset {
+  margin-top: 2rem;
+}
+
+.reset {
+  background-color: rgba(246, 54, 54, 0.651);
+}
+
+.display-none {
   display: none;
 }
