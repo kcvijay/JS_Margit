@@ -1,53 +1,39 @@
-const cards = document.querySelector(".cards");
-const card = document.querySelectorAll(".card");
-const errTxt = document.querySelector(".errorTxt");
-const search = document.querySelector("#search");
+let cards = document.querySelector(".cards");
+let card = document.querySelectorAll(".card");
+let errTxt = document.querySelector(".errorTxt");
+let search = document.querySelector("#search");
+
+let pokeTypesContainer = document.querySelectorAll(".poke-types");
+
+let nextPage = document.querySelector(".next-page");
 
 const addPokeCard = (obj) => {
   const cardData = `
     <div class="card">
-    <img src="${obj.sprites.other.home.front_default}"/>
+    <div class="poke-types">
+    <img src="media/icons/${obj.types[0].type.name}.svg"/></div>
+    <img class="pokemon-img" src="${obj.sprites.other.home.front_default}" alt="pokemon icon"/>
     <p class="name">${obj.name}</p>
   </div>`;
-
   cards.insertAdjacentHTML("beforeend", cardData);
 };
 
-// const searchPokeCard = () => {
-//   const cards = document.querySelector(".cards");
-//   let filter = search.value.toUpperCase();
-//   for (const card in cards) {
-//     let cardName = card.querySelector(".name");
-//     if (cardName.textContent.toUpperCase().indexOf(filter) > -1) {
-//       return (card.style.display = "block");
-//     } else {
-//       return (card.style.display = "none");
-//     }
-//   }
-// };
-
-// function filterPokeCards(e) {
-//   card.forEach((item) => {
-//     item.style.display = "none";
-//     if (cardName.textContent.includes(e.target.value)) {
-//       return (item.style.display = "block");
-//     } else {
-//       return;
-//     }
-//   });
-// }
-
-const filterCards = () => {
-  let filter = search.value;
-  for (let i = 0; i < card.length; i++) {
-    let cardName = card[i].querySelector(".name");
-    if (cardName.innerText.indexOf(filter) > -1) {
-      card[i].style.display = "";
-    } else {
-      card[i].style.display = "none";
+function filterCards() {
+  let filterTxt, card, cardName, i, txtValue;
+  filterTxt = search.value.toUpperCase();
+  card = document.querySelectorAll(".card");
+  card.forEach((eachCard) => {
+    cardName = eachCard.querySelector(".name");
+    if (cardName) {
+      txtValue = cardName.textContent || cardName.innerText;
+      if (txtValue.toUpperCase().indexOf(filterTxt) > -1) {
+        eachCard.style.display = "";
+      } else {
+        eachCard.style.display = "none";
+      }
     }
-  }
-};
+  });
+}
 
 const errorMsg = (err) => {
   errTxt.textContent = `Data not found. ${err.message}`;
@@ -80,7 +66,7 @@ const getPokemon = () => {
       });
     })
     .catch((err) => {
-      errorMsg(err);
+      errorMsg(`${err}`);
     });
 };
 

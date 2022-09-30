@@ -12,8 +12,9 @@
       <h1>pokedex</h1>
       <input type="search" id="search" placeholder="Search Pokemons..." />
     </header>
-    <div class="errorTxt"></div>
+
     <main>
+      <div class="errorTxt"></div>
       <div class="gens">
         <button class="gen">Gen 1</button>
         <button class="gen">Gen 2</button>
@@ -24,6 +25,12 @@
         <button class="gen">Gen 7</button>
       </div>
       <div class="cards"></div>
+      <footer>
+        <div class="pagination">
+          <button class="prev-page">&larr; Previous</button>
+          <button class="next-page">Next &rarr;</button>
+        </div>
+      </footer>
     </main>
     <script src="main.js"></script>
   </body>
