@@ -7,17 +7,30 @@ let pokeTypesContainer = document.querySelectorAll(".poke-types");
 
 let nextPage = document.querySelector(".next-page");
 
-const addPokeCard = (obj) => {
-  const cardData = `
-    <div class="card">
-    <div class="poke-types">
-    <img src="media/icons/${obj.types[0].type.name}.svg"/></div>
-    <img class="pokemon-img" src="${obj.sprites.other.home.front_default}" alt="pokemon icon"/>
-    <p class="name">${obj.name}</p>
-  </div>`;
+const addPokeCard = (pokemon) => {
+  const cardData = `<div class="card">
+      <div class="poke-types">
+      <img src="media/icons/${pokemon.poketype}.svg"/>
+      </div>
+      <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon"/>
+      <p class="name">${pokemon.name}</p>
+    </div>`;
   cards.insertAdjacentHTML("beforeend", cardData);
 };
 
+const addPokeCard2 = (pokemon) => {
+  const cardData = `<div class="card">
+      <div class="poke-types">
+      <img src="media/icons/${pokemon.poketype}.svg"/>
+      <img src="media/icons/${pokemon.poketype2}.svg"/>
+      </div>
+      <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon"/>
+      <p class="name">${pokemon.name}</p>
+    </div>`;
+  cards.insertAdjacentHTML("beforeend", cardData);
+};
+
+// Ideas from w3schools
 function filterCards() {
   let filterTxt, card, cardName, i, txtValue;
   filterTxt = search.value.toUpperCase();
@@ -35,38 +48,97 @@ function filterCards() {
   });
 }
 
+const nextPokemonList = (list) => {
+  fetch(`${list}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Pokemon not found!");
+      } else {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      console.log(data);
+      addPokeCard(data);
+    });
+};
+
 const errorMsg = (err) => {
   errTxt.textContent = `Data not found. ${err.message}`;
   errTxt.style.padding = "20px";
   errTxt.style.color = "#fff";
 };
 
+// Old way
+// const getPokemon = () => {
+//   fetch(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=0`)
+//     .then((res) => {
+//       if (!res.ok) {
+//         throw new Error("Pokemon not found");
+//       } else {
+//         return res.json();
+//       }
+//     })
+//     .then((data) => {
+//       data.results.forEach((obj) => {
+//         fetch(`${obj.url}`)
+//           .then((response) => {
+//             if (!response.ok) {
+//               throw new Error("Pokemon not found!");
+//             } else {
+//               return response.json();
+//             }
+//           })
+//           .then((data) => {
+//             addPokeCard(data);
+//           });
+//       });
+//     })
+
+//     .catch((err) => {
+//       errorMsg(`${err}`);
+//     });
+// };
+
+// getPokemon();
+// search.addEventListener("keyup", filterCards);
+
+/*   Cleaner way to fetch all pokemon data (few ideas from: James Q Quick (Youtube)/W3 Schools) ***/
+
 const getPokemon = () => {
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=0`)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Pokemon not found");
-      } else {
-        return res.json();
-      }
-    })
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`)
+    .then((response) => response.json())
     .then((data) => {
-      data.results.forEach((obj) => {
+      console.log(data.results);
+      const everyPokemon = data.results;
+      everyPokemon.forEach((obj) => {
         fetch(`${obj.url}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Pokemon not found!");
-            } else {
-              return response.json();
-            }
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Pokemon not found");
+            } else return res.json();
           })
           .then((data) => {
-            addPokeCard(data);
+            console.log(data);
+            // One trick/cheat to put multiple type icons into cards. Because appending child did not work.
+            if (data.types.length > 1) {
+              const pokemon = {
+                name: data.name,
+                image: data.sprites.other.home.front_default,
+                poketype: data.types[0].type.name,
+                poketype2: data.types[1].type.name,
+              };
+              return addPokeCard2(pokemon);
+            } else {
+              const pokemon = {
+                name: data.name,
+                image: data.sprites.other.home.front_default,
+                poketype: data.types[0].type.name,
+              };
+              return addPokeCard(pokemon);
+            }
           });
       });
-    })
-    .catch((err) => {
-      errorMsg(`${err}`);
     });
 };
 
