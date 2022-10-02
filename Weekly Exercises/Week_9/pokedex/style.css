@@ -60,7 +60,7 @@ header h1 {
 main {
   max-width: 1200px;
   min-height: 100vh;
-  background-color: #fff;
+  background-color: rgb(236, 236, 236);
   margin: 0 auto;
   padding: 32px;
 }
@@ -78,13 +78,16 @@ main {
   margin-bottom: 2rem;
 }
 
-button {
+button,
+.btn {
   background-color: var(--red);
   box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.1);
   padding: 1rem 1.5rem;
   border: none;
   border-radius: 3px;
   font-family: inherit;
+  text-decoration: none;
+  font-size: 1.6rem;
   color: #fff;
   margin: 1rem;
   cursor: pointer;
@@ -100,17 +103,18 @@ button {
 
 .card {
   position: relative;
+  background: #fff;
   width: 200px;
   text-align: center;
-  border: 1px solid rgb(216, 216, 216);
   border-radius: 7px;
-  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  transition: all 0.3s;
 }
 
 .poke-types {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.684);
+  border-bottom: 1px solid rgba(238, 238, 238, 0.677);
   display: flex;
   justify-items: flex-start;
   width: 100%;
