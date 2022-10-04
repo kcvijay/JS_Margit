@@ -10,6 +10,7 @@ let pokeTypesContainer = document.querySelectorAll(".poke-types");
 const nextPage = document.querySelector(".next-page");
 const prevPage = document.querySelector(".prev-page");
 
+//one type
 const addPokeCard = (pokemon) => {
   const cardData = `
     <div class="card">
@@ -17,11 +18,20 @@ const addPokeCard = (pokemon) => {
       <img src="media/icons/${pokemon.poketype}.svg"/>
       </div>
       <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon"/>
-      <p class="name">${pokemon.name}</p>
+      <div class="info">
+        <p class="name">${pokemon.name}</p>
+        <div class="more-info">
+            <p class="weight"><span>Weight: </span>${pokemon.weight}</p>
+            <p class="height"><span>Height: </span>${pokemon.height}</p>
+            <p class="experience"><span>Base Experiences: </span>${pokemon.experience}</p>
+          </div>
+        </div>
+      </div>
     </div>`;
   cards.insertAdjacentHTML("beforeend", cardData);
 };
 
+//two types
 const addPokeCard2 = (pokemon) => {
   const cardData = `
   <div class="card">
@@ -30,7 +40,15 @@ const addPokeCard2 = (pokemon) => {
         <img src="media/icons/${pokemon.poketype2}.svg"/>
         </div>
         <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon"/>
+        <div class="info">
         <p class="name">${pokemon.name}</p>
+        <div class="more-info">
+            <p class="weight"><span>Weight: </span>${pokemon.weight}</p>
+            <p class="height"><span>Height: </span>${pokemon.height}</p>
+            <p class="experience"><span>Base Experiences: </span>${pokemon.experience}</p>
+          </div>
+        </div>
+      </div>
     </div>`;
   cards.insertAdjacentHTML("beforeend", cardData);
 };
@@ -52,12 +70,14 @@ function filterCards() {
     }
   });
 }
+//Error message
 const errorMsg = (err) => {
   errTxt.textContent = `Data not found. ${err.message}`;
   errTxt.style.padding = "20px";
   errTxt.style.color = "#fff";
 };
 
+//putting active class to a button
 for (let i = 0; i < gens.length; i++) {
   gens[i].addEventListener("click", function () {
     var current = document.getElementsByClassName("active");
@@ -68,188 +88,36 @@ for (let i = 0; i < gens.length; i++) {
   });
 }
 
-/*   Cleaner way to fetch all pokemon data (few ideas from: James Q Quick (Youtube)/W3 Schools) ***/
-
-// const getPokemon = () => {
-//   fetch(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Pokemon not found");
-//       } else return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//       let nextUrl = data.next;
-//       let prevUrl = data.previous;
-//       nextPage.id = nextUrl;
-//       prevPage.id = prevUrl;
-
-//       const everyPokemon = data.results;
-//       everyPokemon.forEach((obj) => {
-//         fetch(`${obj.url}`)
-//           .then((res) => {
-//             if (!res.ok) {
-//               throw new Error("Pokemon not found");
-//             } else return res.json();
-//           })
-//           .then((data) => {
-//             // One trick/cheat to put multiple type icons into cards. Because appending child did not work.
-//             if (data.types.length > 1) {
-//               const pokemon = {
-//                 name: data.name,
-//                 image: data.sprites.other.home.front_default,
-//                 poketype: data.types[0].type.name,
-//                 poketype2: data.types[1].type.name,
-//               };
-//               return addPokeCard2(pokemon);
-//             } else {
-//               const pokemon = {
-//                 name: data.name,
-//                 image: data.sprites.other.home.front_default,
-//                 poketype: data.types[0].type.name,
-//               };
-//               return addPokeCard(pokemon);
-//             }
-//           })
-//           .catch((err) => {
-//             errorMsg(err);
-//           });
-//       });
-//     });
-// };
-
-// nextPage.addEventListener("click", (btn) => {
-//   fetch(`${btn.target.id}`)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Pokemon not found");
-//       } else return response.json();
-//     })
-//     .then((data) => {
-//       // One trick/cheat to put multiple type icons into cards. Because appending child did not work.
-//       if (data.types.length > 1) {
-//         const pokemon = {
-//           name: data.name,
-//           image: data.sprites.other.home.front_default,
-//           poketype: data.types[0].type.name,
-//           poketype2: data.types[1].type.name,
-//         };
-//         return addPokeCard2(pokemon);
-//       } else {
-//         const pokemon = {
-//           name: data.name,
-//           image: data.sprites.other.home.front_default,
-//           poketype: data.types[0].type.name,
-//         };
-//         return addPokeCard(pokemon);
-//       }
-//     });
-// });
-// prevPage.addEventListener("click", (e) => {
-//   fetch(`${e.id}`)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Pokemon not found");
-//       } else return response.json();
-//     })
-//     .then((data) => {
-//       // One trick/cheat to put multiple type icons into cards. Because appending child did not work.
-//       if (data.types.length > 1) {
-//         const pokemon = {
-//           name: data.name,
-//           image: data.sprites.other.home.front_default,
-//           poketype: data.types[0].type.name,
-//           poketype2: data.types[1].type.name,
-//         };
-//         return addPokeCard2(pokemon);
-//       } else {
-//         const pokemon = {
-//           name: data.name,
-//           image: data.sprites.other.home.front_default,
-//           poketype: data.types[0].type.name,
-//         };
-//         return addPokeCard(pokemon);
-//       }
-//     });
-// });
-//***//******************************************************************************** */ */
-// const getPokemon = () => {
-//   fetch(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Pokemon not found");
-//       } else return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//       const everyPokemon = data.results;
-//       everyPokemon.forEach((obj) => {
-//         fetch(`${obj.url}`)
-//           .then((res) => {
-//             if (!res.ok) {
-//               throw new Error("Pokemon not found");
-//             } else return res.json();
-//           })
-//           .then((data) => {
-//             console.log(data);
-//             // One trick/cheat to put multiple type icons into cards. Because appending child did not work.
-//             if (data.types.length > 1) {
-//               const pokemon = {
-//                 name: data.name,
-//                 image: data.sprites.other.home.front_default,
-//                 poketype: data.types[0].type.name,
-//                 poketype2: data.types[1].type.name,
-//               };
-//               return addPokeCard2(pokemon);
-//             } else {
-//               const pokemon = {
-//                 name: data.name,
-//                 image: data.sprites.other.home.front_default,
-//                 poketype: data.types[0].type.name,
-//               };
-//               return addPokeCard(pokemon);
-//             }
-//           })
-//           .catch((err) => {
-//             errorMsg(err);
-//           });
-//       });
-//     });
-// };
-
-// getPokemon();
-
 gens.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const startId = btn.getAttribute("data-value");
-    const endId = btn.getAttribute("data-value2");
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${endId}&offset=${startId}`)
+    cards.innerHTML = "";
+    const genId = btn.getAttribute("data-value");
+    fetch(`https://pokeapi.co/api/v2/generation/${genId}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Pokemon not found");
+          throw new Error(response.status);
         } else return response.json();
       })
       .then((data) => {
-        console.log(data);
-        const everyPokemon = data.results;
-        everyPokemon.map((obj) => {
-          fetch(`${obj.url}`)
+        const pokemons = data.pokemon_species;
+        pokemons.map((eachPokemon) => {
+          fetch(`https://pokeapi.co/api/v2/pokemon/${eachPokemon.name}`)
             .then((res) => {
               if (!res.ok) {
-                throw new Error(res.status);
-              } else {
-                return res.json();
-              }
+                throw new Error(response.status);
+              } else return res.json();
             })
             .then((data) => {
               console.log(data);
-              // One trick/cheat to put multiple type icons into cards. Because appending child did not work.
               if (data.types.length > 1) {
                 const pokemon = {
                   name: data.name,
                   image: data.sprites.other.home.front_default,
                   poketype: data.types[0].type.name,
                   poketype2: data.types[1].type.name,
+                  weight: data.weight,
+                  height: data.height,
+                  experience: data.base_experience,
                 };
                 return addPokeCard2(pokemon);
               } else {
@@ -257,14 +125,17 @@ gens.forEach((btn) => {
                   name: data.name,
                   image: data.sprites.other.home.front_default,
                   poketype: data.types[0].type.name,
+                  weight: data.weight,
+                  height: data.height,
+                  experience: data.base_experience,
                 };
                 return addPokeCard(pokemon);
               }
-            })
-            .catch((err) => {
-              errorMsg(`Something went wrong. ${err.message}`);
             });
         });
+      })
+      .catch((err) => {
+        errorMsg(`Something went wrong. Error ${err.message}`);
       });
   });
 });

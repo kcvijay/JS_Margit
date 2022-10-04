@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokeApp</title>
+    <link rel="icon" type="image/x-icon" href="media/pokemon-icon.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,30 +17,20 @@
     <main>
       <div class="errorTxt"></div>
       <div class="gens">
-        <button class="gen gen1" data-value="0" data-value2="151">Gen 1</button>
-        <button class="gen gen2" data-value="152" data-value2="251">
-          Gen 2
-        </button>
-        <button class="gen gen3" data-value="252" data-value2="386">
-          Gen 3
-        </button>
-        <button class="gen gen4" data-value="387" data-value2="493">
-          Gen 4
-        </button>
-        <button class="gen gen5" data-value="494" data-value2="649">
-          Gen 5
-        </button>
-        <button class="gen gen6" data-value="650" data-value2="719">
-          Gen 6
-        </button>
-        <button class="gen gen7" data-value="720" data-value2="809">
-          Gen 7
-        </button>
-        <button class="gen gen8" data-value="810" data-value2="905">
-          Gen 8
-        </button>
+        <button class="gen gen1" data-value="1">Gen 1</button>
+        <button class="gen gen2" data-value="2">Gen 2</button>
+        <button class="gen gen3" data-value="3">Gen 3</button>
+        <button class="gen gen4" data-value="4">Gen 4</button>
+        <button class="gen gen5" data-value="5">Gen 5</button>
+        <button class="gen gen6" data-value="6">Gen 6</button>
+        <button class="gen gen7" data-value="7">Gen 7</button>
+        <button class="gen gen8" data-value="8">Gen 8</button>
       </div>
-      <div class="cards"></div>
+      <div class="cards">
+        <p style="font-size: 18px; color: #999">
+          Click generation buttons to fetch Pokemons.
+        </p>
+      </div>
       <footer>
         <div class="pagination">
           <a class="btn prev-page">&larr; Previous</a>
