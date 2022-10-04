@@ -21,9 +21,9 @@ const addPokeCard = (pokemon) => {
       <div class="info">
         <p class="name">${pokemon.name}</p>
         <div class="more-info">
-            <p class="weight"><span>Weight: </span>${pokemon.weight}</p>
-            <p class="height"><span>Height: </span>${pokemon.height}</p>
-            <p class="experience"><span>Base Experiences: </span>${pokemon.experience}</p>
+            <p class="weight"><span><b>Weight: </b></span>${pokemon.weight} lbs</p>
+            <p class="height"><span><b>Height: </b></span>${pokemon.height} meters</p>
+            <p class="experience"><span><b>Base Experiences: </b></span>${pokemon.experience}</p>
           </div>
         </div>
       </div>
@@ -43,9 +43,9 @@ const addPokeCard2 = (pokemon) => {
         <div class="info">
         <p class="name">${pokemon.name}</p>
         <div class="more-info">
-            <p class="weight"><span>Weight: </span>${pokemon.weight}</p>
-            <p class="height"><span>Height: </span>${pokemon.height}</p>
-            <p class="experience"><span>Base Experiences: </span>${pokemon.experience}</p>
+            <p class="weight"><span><b>Weight: </b></span>${pokemon.weight} lbs</p>
+            <p class="height"><span><b>Height: </b></span>${pokemon.height} meters</p>
+            <p class="experience"><span><b>Base Experiences: </b></span>${pokemon.experience}</p>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ function filterCards() {
 const errorMsg = (err) => {
   errTxt.textContent = `Data not found. ${err.message}`;
   errTxt.style.padding = "20px";
-  errTxt.style.color = "#fff";
+  errTxt.style.color = "#333";
 };
 
 //putting active class to a button
@@ -104,7 +104,7 @@ gens.forEach((btn) => {
           fetch(`https://pokeapi.co/api/v2/pokemon/${eachPokemon.name}`)
             .then((res) => {
               if (!res.ok) {
-                throw new Error(response.status);
+                throw new Error(res.status);
               } else return res.json();
             })
             .then((data) => {
@@ -115,8 +115,8 @@ gens.forEach((btn) => {
                   image: data.sprites.other.home.front_default,
                   poketype: data.types[0].type.name,
                   poketype2: data.types[1].type.name,
-                  weight: data.weight,
-                  height: data.height,
+                  weight: Number(data.weight / 10),
+                  height: Number(data.height / 10),
                   experience: data.base_experience,
                 };
                 return addPokeCard2(pokemon);
@@ -125,8 +125,8 @@ gens.forEach((btn) => {
                   name: data.name,
                   image: data.sprites.other.home.front_default,
                   poketype: data.types[0].type.name,
-                  weight: data.weight,
-                  height: data.height,
+                  weight: Number(data.weight / 10),
+                  height: Number(data.height / 10),
                   experience: data.base_experience,
                 };
                 return addPokeCard(pokemon);
@@ -135,8 +135,9 @@ gens.forEach((btn) => {
         });
       })
       .catch((err) => {
-        errorMsg(`Something went wrong. Error ${err.message}`);
+        errorMsg(`Pokemon not found. Error ${err.message}`);
       });
   });
 });
+const getPokemons = () => {};
 search.addEventListener("keyup", filterCards);
