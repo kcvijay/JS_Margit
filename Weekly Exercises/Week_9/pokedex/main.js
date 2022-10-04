@@ -1,9 +1,9 @@
-let cards = document.querySelector(".cards");
+const cards = document.querySelector(".cards");
 let card = document.querySelectorAll(".card");
 let errTxt = document.querySelector(".errorTxt");
 let search = document.querySelector("#search");
 
-const gen = document.querySelectorAll(".gen");
+const gens = document.querySelectorAll(".gen");
 
 let pokeTypesContainer = document.querySelectorAll(".poke-types");
 
@@ -57,6 +57,16 @@ const errorMsg = (err) => {
   errTxt.style.padding = "20px";
   errTxt.style.color = "#fff";
 };
+
+for (let i = 0; i < gens.length; i++) {
+  gens[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+    this.className += " active";
+  });
+}
 
 /*   Cleaner way to fetch all pokemon data (few ideas from: James Q Quick (Youtube)/W3 Schools) ***/
 
@@ -162,6 +172,7 @@ const errorMsg = (err) => {
 //       }
 //     });
 // });
+//***//******************************************************************************** */ */
 // const getPokemon = () => {
 //   fetch(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`)
 //     .then((response) => {
@@ -206,7 +217,9 @@ const errorMsg = (err) => {
 //     });
 // };
 
-gen.forEach((btn) => {
+// getPokemon();
+
+gens.forEach((btn) => {
   btn.addEventListener("click", () => {
     const startId = btn.getAttribute("data-value");
     const endId = btn.getAttribute("data-value2");
@@ -219,12 +232,14 @@ gen.forEach((btn) => {
       .then((data) => {
         console.log(data);
         const everyPokemon = data.results;
-        everyPokemon.forEach((obj) => {
+        everyPokemon.map((obj) => {
           fetch(`${obj.url}`)
             .then((res) => {
               if (!res.ok) {
-                throw new Error("Pokemon not found");
-              } else return res.json();
+                throw new Error(res.status);
+              } else {
+                return res.json();
+              }
             })
             .then((data) => {
               console.log(data);
@@ -247,12 +262,10 @@ gen.forEach((btn) => {
               }
             })
             .catch((err) => {
-              errorMsg(err);
+              errorMsg(`Something went wrong. ${err.message}`);
             });
         });
       });
   });
 });
-
-// getPokemon();
 search.addEventListener("keyup", filterCards);
