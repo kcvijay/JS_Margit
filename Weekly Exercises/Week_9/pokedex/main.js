@@ -14,10 +14,12 @@ const prevPage = document.querySelector(".prev-page");
 const addPokeCard = (pokemon) => {
   const cardData = `
     <div class="card">
+    <p class="pokeID">#${pokemon.id}</p>
       <div class="poke-types">
       <img src="media/icons/${pokemon.poketype}.svg"/>
+
       </div>
-      <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon"/>
+      <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon" onerror="this.onerror=null;this.src='media/pokemon.icon.png'" />
       <div class="info">
         <p class="name">${pokemon.name}</p>
         <div class="more-info">
@@ -35,11 +37,12 @@ const addPokeCard = (pokemon) => {
 const addPokeCard2 = (pokemon) => {
   const cardData = `
   <div class="card">
+  <p class="pokeID">#${pokemon.id}</p>
         <div class="poke-types">
         <img src="media/icons/${pokemon.poketype}.svg"/>
         <img src="media/icons/${pokemon.poketype2}.svg"/>
         </div>
-        <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon"/>
+        <img class="pokemon-img" src="${pokemon.image}" alt="pokemon icon" onerror="this.onerror=null;this.src='media/pokemon-icon.png'" />
         <div class="info">
         <p class="name">${pokemon.name}</p>
         <div class="more-info">
@@ -113,6 +116,7 @@ gens.forEach((btn) => {
                 const pokemon = {
                   name: data.name,
                   image: data.sprites.other.home.front_default,
+                  id: data.id,
                   poketype: data.types[0].type.name,
                   poketype2: data.types[1].type.name,
                   weight: Number(data.weight / 10),
@@ -124,6 +128,7 @@ gens.forEach((btn) => {
                 const pokemon = {
                   name: data.name,
                   image: data.sprites.other.home.front_default,
+                  id: data.id,
                   poketype: data.types[0].type.name,
                   weight: Number(data.weight / 10),
                   height: Number(data.height / 10),

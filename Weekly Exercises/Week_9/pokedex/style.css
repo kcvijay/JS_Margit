@@ -132,6 +132,7 @@ button,
   height: 100%;
   transition: all 0.3s ease;
   filter: grayscale(0);
+  padding: 2rem;
 }
 
 .pokemon-img:hover {
@@ -177,7 +178,7 @@ button,
 
 .card .poke-types {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.559);
+  background-color: rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(238, 238, 238, 0.677);
   display: flex;
   justify-items: flex-start;
@@ -187,6 +188,16 @@ button,
   left: 0;
   top: 0;
   z-index: 1;
+}
+
+.pokeID {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #d8d8d8;
+  z-index: 3;
 }
 
 .info {
