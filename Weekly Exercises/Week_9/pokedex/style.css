@@ -24,7 +24,7 @@ body {
       rgba(0, 0, 0, 0.8)
     ),
     url("media/poke-bg.webp");
-  background-position: center;
+  background-position: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "Poppins", sans-serif;
@@ -104,6 +104,12 @@ button,
 .active {
   background-color: var(--red);
   color: #fff;
+}
+
+#numberOfCards {
+  padding: 1.5rem 0 1.5rem 0;
+  font-size: 1.6rem;
+  color: #555;
 }
 
 .cards {
@@ -203,7 +209,7 @@ button,
 .info {
   background-color: var(--dark-blue);
   position: absolute;
-  bottom: -65px;
+  bottom: -70px;
   width: 100%;
   transition: bottom 0.3s ease;
 }

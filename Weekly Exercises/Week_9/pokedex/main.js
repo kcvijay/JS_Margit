@@ -102,8 +102,10 @@ gens.forEach((btn) => {
         } else return response.json();
       })
       .then((data) => {
-        const pokemons = data.pokemon_species;
-        pokemons.map((eachPokemon) => {
+        document.querySelector(
+          "#numberOfCards"
+        ).innerHTML = `This generation has </strong>${data.pokemon_species.length}</strong> Pokemons.`;
+        data.pokemon_species.map((eachPokemon) => {
           fetch(`https://pokeapi.co/api/v2/pokemon/${eachPokemon.name}`)
             .then((res) => {
               if (!res.ok) {
@@ -111,7 +113,6 @@ gens.forEach((btn) => {
               } else return res.json();
             })
             .then((data) => {
-              console.log(data);
               if (data.types.length > 1) {
                 const pokemon = {
                   name: data.name,
@@ -138,9 +139,6 @@ gens.forEach((btn) => {
               }
             });
         });
-      })
-      .catch((err) => {
-        errorMsg(`Pokemon not found. Error ${err.message}`);
       });
   });
 });
