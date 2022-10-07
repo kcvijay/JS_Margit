@@ -7,8 +7,8 @@ const gens = document.querySelectorAll(".gen");
 
 let pokeTypesContainer = document.querySelectorAll(".poke-types");
 
-const nextPage = document.querySelector(".next-page");
-const prevPage = document.querySelector(".prev-page");
+const pokeTypes = document.querySelector(".allTypes");
+const sectionPokeTypes = document.querySelector(".section-allTypes");
 
 //one type
 const addPokeCard = (pokemon) => {
@@ -144,3 +144,6 @@ gens.forEach((btn) => {
 });
 const getPokemons = () => {};
 search.addEventListener("keyup", filterCards);
+pokeTypes.addEventListener("click", () => {
+  sectionPokeTypes.classList.toggle("visible");
+});

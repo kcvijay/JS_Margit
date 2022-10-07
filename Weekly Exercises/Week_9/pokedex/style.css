@@ -74,6 +74,55 @@ main {
   padding: 32px;
 }
 
+.allTypes {
+  font-size: 3rem;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.section-allTypes {
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 7px;
+  display: none;
+}
+
+.section-allTypes h3 {
+  padding: 1rem 0;
+}
+
+.section-allTypes ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.section-allTypes li {
+  margin-right: 1.5rem;
+  list-style-type: none;
+}
+
+.section-allTypes span {
+  display: inline-block;
+  width: 3rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Visibility */
+
+.section-allTypes.visible {
+  display: block;
+}
+
 .errorTxt {
   color: #333;
   font-size: 1.6rem;
