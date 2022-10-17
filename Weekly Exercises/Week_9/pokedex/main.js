@@ -2,11 +2,8 @@ const cards = document.querySelector(".cards");
 let card = document.querySelectorAll(".card");
 let errTxt = document.querySelector(".errorTxt");
 let search = document.querySelector("#search");
-
 const gens = document.querySelectorAll(".gen");
-
 let pokeTypesContainer = document.querySelectorAll(".poke-types");
-
 const pokeTypes = document.querySelector(".allTypes");
 const sectionPokeTypes = document.querySelector(".section-allTypes");
 
@@ -142,8 +139,7 @@ gens.forEach((btn) => {
       });
   });
 });
-const getPokemons = () => {};
-search.addEventListener("keyup", filterCards);
 pokeTypes.addEventListener("click", () => {
   sectionPokeTypes.classList.toggle("visible");
 });
+search.addEventListener("keyup", filterCards);
