@@ -9,6 +9,7 @@
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -73,6 +74,16 @@ main {
   background-color: rgb(236, 236, 236);
   margin: 0 auto;
   padding: 32px;
+}
+
+button,
+.material-icons {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.material-icons:hover {
+  opacity: 0.8;
 }
 
 .allTypes {
@@ -300,6 +311,18 @@ footer .pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.to-top {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  border: 3px solid #333;
+  padding: 0.5rem;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 @media (max-width: 500px) {

@@ -103,6 +103,13 @@
           <li>
             <span
               ><img
+                src="media/icons/normal.svg"
+                alt="Pokemon types icon" /></span
+            >Normal
+          </li>
+          <li>
+            <span
+              ><img
                 src="media/icons/poison.svg"
                 alt="Pokemon types icon" /></span
             >Poison
@@ -137,14 +144,15 @@
       </aside>
       <div class="errorTxt"></div>
       <div class="gens">
-        <button class="gen gen1" data-value="1">Gen 1</button>
-        <button class="gen gen2" data-value="2">Gen 2</button>
-        <button class="gen gen3" data-value="3">Gen 3</button>
-        <button class="gen gen4" data-value="4">Gen 4</button>
-        <button class="gen gen5" data-value="5">Gen 5</button>
-        <button class="gen gen6" data-value="6">Gen 6</button>
-        <button class="gen gen7" data-value="7">Gen 7</button>
-        <button class="gen gen8" data-value="8">Gen 8</button>
+        <button class="gen gen1" id="0">Gen 1</button>
+        <button class="gen gen2" id="1">Gen 2</button>
+        <button class="gen gen3" id="2">Gen 3</button>
+        <button class="gen gen4" id="3">Gen 4</button>
+        <button class="gen gen5" id="4">Gen 5</button>
+        <button class="gen gen6" id="5">Gen 6</button>
+        <button class="gen gen7" id="6">Gen 7</button>
+        <button class="gen gen8" id="7">Gen 8</button>
+        <button class="gen gen9" id="8">Gen 9</button>
       </div>
       <p id="numberOfCards"></p>
       <div class="cards">
@@ -152,12 +160,7 @@
           Click generation buttons to get Pokemons.
         </p>
       </div>
-      <!-- <footer>
-        <div class="pagination">
-          <a class="btn prev-page">&larr; Previous</a>
-          <a class="btn next-page">Next &rarr;</a>
-        </div>
-      </footer> -->
+      <span class="material-icons to-top">north</span>
     </main>
     <script src="main.js"></script>
   </body>
