@@ -88,13 +88,21 @@ button:hover,
 
 .allTypes {
   font-size: 3rem;
-  background-color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 2rem;
   right: 2rem;
-  padding: 0.3rem;
   cursor: pointer;
+}
+
+.allTypes img {
+  width: 3rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.allTypes img:active {
+  opacity: 0.8;
 }
 
 .section-allTypes {

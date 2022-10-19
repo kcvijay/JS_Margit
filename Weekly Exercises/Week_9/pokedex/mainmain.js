@@ -175,7 +175,6 @@ for (let i = 0; i < gens.length; i++) {
   });
 }
 
-/* Different Fetch Technique */
 // gens.forEach((btn) => {
 //   btn.addEventListener("click", () => {
 //     cards.innerHTML = "";
