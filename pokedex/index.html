@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeDex | Pokemons in a click</title>
+    <link rel="icon" type="image/x-icon" href="media/pokemon-icon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>pokedex</h1>
+      <input type="search" id="search" placeholder="Search Pokemons..." />
+    </header>
+
+    <main>
+      <span class="allTypes"><img src="media/pokemon-icon.png" /></span>
+      <aside class="section-allTypes">
+        <h3>All Pokemon Types</h3>
+        <ul>
+          <li>
+            <span
+              ><img src="media/icons/bug.svg" alt="Pokemon types icon" /></span
+            >Bug
+          </li>
+          <li>
+            <span
+              ><img src="media/icons/dark.svg" alt="Pokemon types icon" /></span
+            >Dark
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/dragon.svg"
+                alt="Pokemon types icon" /></span
+            >Dragon
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/electric.svg"
+                alt="Pokemon types icon" /></span
+            >Electric
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/fairy.svg"
+                alt="Pokemon types icon" /></span
+            >Fairy
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/fighting.svg"
+                alt="Pokemon types icon" /></span
+            >Fighting
+          </li>
+          <li>
+            <span
+              ><img src="media/icons/fire.svg" alt="Pokemon types icon" /></span
+            >Fire
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/flying.svg"
+                alt="Pokemon types icon" /></span
+            >Flying
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/ghost.svg"
+                alt="Pokemon types icon" /></span
+            >Ghost
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/grass.svg"
+                alt="Pokemon types icon" /></span
+            >Grass
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/ground.svg"
+                alt="Pokemon types icon" /></span
+            >Ground
+          </li>
+          <li>
+            <span
+              ><img src="media/icons/ice.svg" alt="Pokemon types icon" /></span
+            >Ice
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/normal.svg"
+                alt="Pokemon types icon" /></span
+            >Normal
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/poison.svg"
+                alt="Pokemon types icon" /></span
+            >Poison
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/psychic.svg"
+                alt="Pokemon types icon" /></span
+            >Psychic
+          </li>
+          <li>
+            <span
+              ><img src="media/icons/rock.svg" alt="Pokemon types icon" /></span
+            >Rock
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/steel.svg"
+                alt="Pokemon types icon" /></span
+            >Steel
+          </li>
+          <li>
+            <span
+              ><img
+                src="media/icons/water.svg"
+                alt="Pokemon types icon" /></span
+            >Water
+          </li>
+        </ul>
+      </aside>
+      <div class="errorTxt"></div>
+      <div class="gens">
+        <button class="gen gen1" id="0">Gen 1</button>
+        <button class="gen gen2" id="1">Gen 2</button>
+        <button class="gen gen3" id="2">Gen 3</button>
+        <button class="gen gen4" id="3">Gen 4</button>
+        <button class="gen gen5" id="4">Gen 5</button>
+        <button class="gen gen6" id="5">Gen 6</button>
+        <button class="gen gen7" id="6">Gen 7</button>
+        <button class="gen gen8" id="7">Gen 8</button>
+        <button class="gen gen9" id="8">Gen 9</button>
+      </div>
+      <p id="numberOfCards"></p>
+      <div class="cards">
+        <p style="font-size: 18px; color: #999">
+          Click generation buttons to get Pokemons.
+        </p>
+      </div>
+      <span class="material-icons to-top">north</span>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

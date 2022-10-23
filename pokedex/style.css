@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --blue: #3b4cca;
+  --red: #cc0000;
+  --dark-blue: #003a70;
+}
+
+body {
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("media/poke-bg.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #333;
+}
+
+header {
+  background-color: var(--blue);
+  text-align: center;
+  padding: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+header h1 {
+  position: relative;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 4.5rem;
+  letter-spacing: 2.5px;
+  background-image: url("media/poke-cards.webp");
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+#search {
+  background-color: #fff;
+  height: 3rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 3px;
+  padding: 0 1rem;
+}
+
+main {
+  max-width: 1200px;
+  min-height: 100vh;
+  background-color: rgb(236, 236, 236);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+button,
+.material-icons {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.material-icons:hover {
+  opacity: 0.8;
+}
+
+.allTypes {
+  font-size: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.allTypes img {
+  width: 3rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.allTypes img:active {
+  opacity: 0.8;
+}
+
+.section-allTypes {
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 7px;
+  z-index: 999;
+  display: none;
+}
+
+.section-allTypes h3 {
+  padding: 1rem 0;
+}
+
+.section-allTypes ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.section-allTypes li {
+  margin-right: 1.5rem;
+  list-style-type: none;
+}
+
+.section-allTypes span {
+  display: inline-block;
+  width: 2.5rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Visibility */
+
+.section-allTypes.visible {
+  display: block;
+}
+
+.errorTxt {
+  color: #333;
+  font-size: 1.6rem;
+}
+
+.gens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+button,
+.btn {
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--red);
+  border-radius: 7px;
+  font-family: inherit;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #333;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--red);
+  color: #fff;
+}
+
+#numberOfCards {
+  padding: 1.5rem 0 1.5rem 0;
+  font-size: 1.6rem;
+  color: #555;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  min-height: 250px;
+  background: #fff;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 3rem 3rem rgba(247, 170, 115, 0.1);
+  text-align: center;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.pokemon-img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  filter: grayscale(0);
+  padding: 2rem;
+}
+
+.pokemon-img:hover {
+  filter: grayscale(0);
+  animation: shake-it-baby 0.2s ease-in-out infinite;
+}
+
+@keyframes shake-it-baby {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, -3px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 1px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-2px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, -1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(-1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, 2px) rotate(-1deg);
+  }
+}
+
+.card .poke-types {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(238, 238, 238, 0.677);
+  display: flex;
+  justify-items: flex-start;
+  width: 100%;
+  height: 13%;
+  padding: 0.5rem;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.pokeID {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #d8d8d8;
+  z-index: 3;
+}
+
+.info {
+  background-color: var(--dark-blue);
+  position: absolute;
+  bottom: -75px;
+  width: 100%;
+  transition: bottom 0.3s ease;
+}
+
+.name {
+  color: #fff;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.more-info {
+  color: #333;
+  background: #fff;
+  text-align: left;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.info:hover {
+  bottom: 0;
+  background-color: var(--dark-blue);
+}
+
+.info:hover + .pokemon-img {
+  transform: scale(0.7);
+}
+
+.poke-types img {
+  margin-right: 0.3rem;
+}
+
+footer .pagination {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.to-top {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  border: 3px solid #333;
+  padding: 0.5rem;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+}
